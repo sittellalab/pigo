@@ -1,0 +1,86 @@
+a.pg:not([role="button"]) {
+	color: rgb(var(--text-primary));
+	transition: color var(--transition);
+	
+	&:hover {
+		color: var(--text-primary-hover);
+		text-decoration-thickness: 0.0625rem;
+	}
+
+	&:active {
+		color: var(--text-primary-active);
+		transition: none;
+	}
+
+	&.secondary {
+		color: rgb(var(--text-secondary));
+	}
+
+	&.secondary:hover {
+		color: var(--text-secondary-hover);
+	}
+
+	&.secondary:active {
+		color: var(--text-secondary-active);
+	}
+
+	&.contrast {
+		color: rgb(var(--text-contrast));
+	}
+
+	&.contrast:hover {
+		color: var(--text-contrast-hover);
+	}
+
+	&.contrast:active {
+		color: var(--text-contrast-active);
+	}
+
+	&.danger {
+		color: rgb(var(--danger));
+	}
+
+	&.danger:hover {
+		color: var(--danger-hover);
+	}
+
+	&.danger:active {
+		color: var(--danger-active);
+	}
+
+	&.success {
+		color: rgb(var(--success));
+	}
+
+	&.success:hover {
+		color: var(--success-hover);
+	}
+
+	&.success:active {
+		color: var(--success-active);
+	}
+
+	&.info {
+		color: rgb(var(--info));
+	}
+
+	&.info:hover {
+		color: var(--info-hover);
+	}
+
+	&.info:active {
+		color: var(--info-active);
+	}
+
+	&.warning {
+		color: rgb(var(--warning));
+	}
+
+	&.warning:hover {
+		color: var(--warning-hover);
+	}
+
+	&.warning:active {
+		color: var(--warning-active);
+	}
+}

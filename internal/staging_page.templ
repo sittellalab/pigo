@@ -12,7 +12,16 @@ templ Stage() {
 			@ui.DetectTheme()
 		</head>
 		<body class="pg">
-			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "1.5rem"})
+			@ui.ThemeToggle(ui.ThemeToggleProps{})
+			<a href="#">Non-Pigo linke</a>
+			<a href="#" class="pg">Primary Link</a>
+			<a href="#" class="pg secondary">Secondary Link</a>
+			<a href="#" class="pg contrast">Contrast Link</a>
+			<a href="#" class="pg jade">Jade Link</a>
+			<a href="#" class="pg danger">Danger Link</a>
+			<a href="#" class="pg success">Success Link</a>
+			<a href="#" class="pg info">Info Link</a>
+			<a href="#" class="pg warning">Warning Link</a>
 		</body>
 	</html>
 }

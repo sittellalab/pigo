@@ -43,11 +43,11 @@ func Stage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.ThemeToggle(ui.ThemeToggleProps{Size: "1.5rem"}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.ThemeToggle(ui.ThemeToggleProps{}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"#\">Non-Pigo linke</a> <a href=\"#\" class=\"pg\">Primary Link</a> <a href=\"#\" class=\"pg secondary\">Secondary Link</a> <a href=\"#\" class=\"pg contrast\">Contrast Link</a> <a href=\"#\" class=\"pg jade\">Jade Link</a> <a href=\"#\" class=\"pg danger\">Danger Link</a> <a href=\"#\" class=\"pg success\">Success Link</a> <a href=\"#\" class=\"pg info\">Info Link</a> <a href=\"#\" class=\"pg warning\">Warning Link</a></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

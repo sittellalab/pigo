@@ -358,6 +358,93 @@
   }
 }
 
+a.pg:not([role="button"]) {
+  color: rgb(var(--text-primary));
+  transition: color var(--transition);
+}
+
+a.pg:not([role="button"]):hover {
+  color: var(--text-primary-hover);
+  text-decoration-thickness: .0625rem;
+}
+
+a.pg:not([role="button"]):active {
+  color: var(--text-primary-active);
+  transition: none;
+}
+
+a.pg:not([role="button"]).secondary {
+  color: rgb(var(--text-secondary));
+}
+
+a.pg:not([role="button"]).secondary:hover {
+  color: var(--text-secondary-hover);
+}
+
+a.pg:not([role="button"]).secondary:active {
+  color: var(--text-secondary-active);
+}
+
+a.pg:not([role="button"]).contrast {
+  color: rgb(var(--text-contrast));
+}
+
+a.pg:not([role="button"]).contrast:hover {
+  color: var(--text-contrast-hover);
+}
+
+a.pg:not([role="button"]).contrast:active {
+  color: var(--text-contrast-active);
+}
+
+a.pg:not([role="button"]).danger {
+  color: rgb(var(--danger));
+}
+
+a.pg:not([role="button"]).danger:hover {
+  color: var(--danger-hover);
+}
+
+a.pg:not([role="button"]).danger:active {
+  color: var(--danger-active);
+}
+
+a.pg:not([role="button"]).success {
+  color: rgb(var(--success));
+}
+
+a.pg:not([role="button"]).success:hover {
+  color: var(--success-hover);
+}
+
+a.pg:not([role="button"]).success:active {
+  color: var(--success-active);
+}
+
+a.pg:not([role="button"]).info {
+  color: rgb(var(--info));
+}
+
+a.pg:not([role="button"]).info:hover {
+  color: var(--info-hover);
+}
+
+a.pg:not([role="button"]).info:active {
+  color: var(--info-active);
+}
+
+a.pg:not([role="button"]).warning {
+  color: rgb(var(--warning));
+}
+
+a.pg:not([role="button"]).warning:hover {
+  color: var(--warning-hover);
+}
+
+a.pg:not([role="button"]).warning:active {
+  color: var(--warning-active);
+}
+
 .amber {
   --bg-primary: 255 191 0;
   --text-primary: 135 100 0;
@@ -669,8 +756,22 @@
   --border-pill: 9999px;
   --border-rounded: .25rem;
   --border-width: .0625rem;
-  --success: 34 139 34;
   --danger: 142 35 35;
+  --inverse-danger: 255 255 255;
+  --danger-active: color-mix(in srgb, rgb(var(--danger)), rgb(var(--inverse-danger)) 25%);
+  --danger-hover: color-mix(in srgb, rgb(var(--danger)), rgb(var(--inverse-danger)) 15%);
+  --success: 34 139 34;
+  --inverse-success: 255 255 255;
+  --success-active: color-mix(in srgb, rgb(var(--success)), rgb(var(--inverse-success)) 25%);
+  --success-hover: color-mix(in srgb, rgb(var(--success)), rgb(var(--inverse-success)) 15%);
+  --info: 13 202 240;
+  --inverse-info: 0 0 0;
+  --info-active: color-mix(in srgb, rgb(var(--info)), rgb(var(--inverse-info)) 25%);
+  --info-hover: color-mix(in srgb, rgb(var(--info)), rgb(var(--inverse-info)) 15%);
+  --warning: 255 193 7;
+  --inverse-warning: 0 0 0;
+  --warning-active: color-mix(in srgb, rgb(var(--warning)), rgb(var(--inverse-warning)) 25%);
+  --warning-hover: color-mix(in srgb, rgb(var(--warning)), rgb(var(--inverse-warning)) 15%);
   --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-family-sans: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-size: 16px;

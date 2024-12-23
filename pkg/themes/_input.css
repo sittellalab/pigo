@@ -1,5 +1,6 @@
 @import "../ui/_index.css";
 @import "../icons/_index.css";
+@import "links.css";
 
 /*
 * Colours
@@ -314,8 +315,22 @@
 	--border-pill: 9999px;
 	--border-rounded: 0.25rem;
 	--border-width: 0.0625rem;
+  --danger: 142 35 35;
+  --inverse-danger: 255 255 255;
+  --danger-active: color-mix(in srgb, rgb(var(--danger)), rgb(var(--inverse-danger)) 25%);
+  --danger-hover: color-mix(in srgb, rgb(var(--danger)), rgb(var(--inverse-danger)) 15%);
 	--success: 34 139 34;
-	--danger: 142 35 35;
+  --inverse-success: 255 255 255;
+	--success-active: color-mix(in srgb, rgb(var(--success)), rgb(var(--inverse-success)) 25%);
+	--success-hover: color-mix(in srgb, rgb(var(--success)), rgb(var(--inverse-success)) 15%);
+  --info: 13 202 240;
+  --inverse-info: 0 0 0;
+  --info-active: color-mix(in srgb, rgb(var(--info)), rgb(var(--inverse-info)) 25%);
+  --info-hover: color-mix(in srgb, rgb(var(--info)), rgb(var(--inverse-info)) 15%);
+  --warning: 255 193 7;
+  --inverse-warning: 0 0 0;
+  --warning-active: color-mix(in srgb, rgb(var(--warning)), rgb(var(--inverse-warning)) 25%);
+  --warning-hover: color-mix(in srgb, rgb(var(--warning)), rgb(var(--inverse-warning)) 15%);
 	--font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 	--font-family-sans: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-size: 16px;
