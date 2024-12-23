@@ -8,6 +8,7 @@ package icons
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+// ThemeToggleMap is used by the ui.ThemeToggle
 var ThemeToggleMap = map[int]func() templ.Component{
 	0:  ToggleClassic,
 	1:  ToggleInnerMoon,
