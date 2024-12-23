@@ -1,3 +1,109 @@
+input.pg:not([type]) {
+  background-color: rgb(var(--bg-input));
+  border-color: rgb(var(--border-input));
+  border-style: solid;
+  border-width: var(--border-width);
+  color: rgb(var(--text-input));
+  font-family: inherit;
+  font-size: .875rem;
+  line-height: inherit;
+  height: calc(var(--font-size) * var(--line-height)  + 2 * var(--border-width)  + 2 * .375rem);
+  width: 100%;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+input.pg:is([type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"]) {
+  background-color: rgb(var(--bg-input));
+  border-color: rgb(var(--border-input));
+  border-style: solid;
+  border-width: var(--border-width);
+  color: rgb(var(--text-input));
+  font-family: inherit;
+  font-size: .875rem;
+  line-height: inherit;
+  height: calc(var(--font-size) * var(--line-height)  + 2 * var(--border-width)  + 2 * .375rem);
+  width: 100%;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+input.pg:is([type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"])::placholder {
+  color: rgb(var(--text-muted));
+}
+
+input.pg:is([type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"]):not(:is(.pg-rounded, .pg-pill)) {
+  border-radius: 0;
+}
+
+input.pg:is([type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"])[disabled] {
+  background-color: rgb(var(--bg-input-disabled));
+}
+
+input.pg:is([type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"]):is(:hover, :focus):not([disabled]) {
+  border-color: rgb(var(--bg-primary));
+  outline: var(--outline-width) solid rgb(var(--bg-primary));
+  outline-offset: calc(-1 * var(--outline-width));
+}
+
+input.pg:is([type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"])[aria-invalid="false"] {
+  border-color: rgb(var(--success));
+  border-width: calc(2 * var(--border-width));
+  background-image: var(--icon-valid);
+  background-position: right .375em center;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+input.pg:is([type="color"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"])[aria-invalid="true"] {
+  border-color: rgb(var(--danger));
+  border-width: calc(2 * var(--border-width));
+  background-image: var(--icon-invalid);
+  background-position: right .375em center;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+input.pg:not([type])::placholder {
+  color: rgb(var(--text-muted));
+}
+
+input.pg:not([type]):not(:is(.pg-rounded, .pg-pill)) {
+  border-radius: 0;
+}
+
+input.pg:not([type])[disabled] {
+  background-color: rgb(var(--bg-input-disabled));
+}
+
+input.pg:not([type]):is(:hover, :focus):not([disabled]) {
+  border-color: rgb(var(--bg-primary));
+  outline: var(--outline-width) solid rgb(var(--bg-primary));
+  outline-offset: calc(-1 * var(--outline-width));
+}
+
+input.pg:not([type])[aria-invalid="false"] {
+  border-color: rgb(var(--success));
+  border-width: calc(2 * var(--border-width));
+  background-image: var(--icon-valid);
+  background-position: right .375em center;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+input.pg:not([type])[aria-invalid="true"] {
+  border-color: rgb(var(--danger));
+  border-width: calc(2 * var(--border-width));
+  background-image: var(--icon-invalid);
+  background-position: right .375em center;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
 .theme-toggle {
   --theme-toggle__classic--duration: .5s;
   --theme-toggle__inner-moon--duration: .5s;

@@ -1,0 +1,66 @@
+input.pg:not([type]),
+input.pg:is(
+	[type="color"],
+	[type="date"],
+	[type="datetime"],
+	[type="datetime-local"],
+	[type="email"],
+	[type="month"],
+	[type="number"],
+	[type="password"],
+	[type="search"],
+	[type="tel"],
+	[type="text"],
+	[type="time"],
+	[type="url"],
+	[type="week"]
+) {
+	background-color: rgb(var(--bg-input));
+	border-color: rgb(var(--border-input));
+	border-style: solid;
+	border-width: var(--border-width);
+	color: rgb(var(--text-input));
+	font-family: inherit;
+	font-size: 0.875rem;
+	line-height: inherit;
+	margin-block: 0.25rem;
+	padding-inline: 0.5rem;
+	height: calc(var(--font-size) * var(--line-height) + 2 * var(--border-width) + 2 * 0.375rem);
+	width: 100%;
+
+	&::placholder {
+		color: rgb(var(--text-muted));
+	}
+
+	&:not(.pg-rounded, .pg-pill) {
+		border-radius: 0;
+	}
+	
+	&[disabled] {
+		background-color: rgb(var(--bg-input-disabled));
+	}
+
+	&:is(:hover, :focus):not([disabled]) {
+		border-color: rgb(var(--bg-primary));
+		outline: var(--outline-width) solid rgb(var(--bg-primary));
+		outline-offset: calc(-1 * var(--outline-width));
+	}
+
+	&[aria-invalid="false"] {
+		border-color: rgb(var(--success));
+		border-width: calc(2 * var(--border-width));
+		background-image: var(--icon-valid);
+		background-position: center right .375em;
+		background-repeat: no-repeat;
+		padding-right: 28px;
+	}
+
+	&[aria-invalid="true"] {
+		border-color: rgb(var(--danger));
+		border-width: calc(2 * var(--border-width));
+		background-image: var(--icon-invalid);
+		background-position: center right 0.375em;
+		background-repeat: no-repeat;
+		padding-right: 28px;
+	}
+}

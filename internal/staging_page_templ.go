@@ -47,7 +47,63 @@ func Stage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><table class=\"pg hoverable striped primary\"><thead><tr><th scope=\"col\">Planet</th><th scope=\"col\">Diameter (km)</th><th scope=\"col\">Distance to Sun (AU)</th><th scope=\"col\">Orbit (days)</th><th scope=\"col\">Planet</th><th scope=\"col\">Diameter (km)</th><th scope=\"col\">Distance to Sun (AU)</th><th scope=\"col\">Orbit (days)</th><th scope=\"col\">Planet</th><th scope=\"col\">Diameter (km)</th><th scope=\"col\">Distance to Sun (AU)</th><th scope=\"col\">Orbit (days)</th><th scope=\"col\">Planet</th><th scope=\"col\">Diameter (km)</th><th scope=\"col\">Distance to Sun (AU)</th><th scope=\"col\">Orbit (days)</th></tr></thead> <tbody><tr><th scope=\"row\">Mercury</th><td>4,880</td><td>0.39</td><td>88</td><th scope=\"row\">Mercury</th><td>4,880</td><td>0.39</td><td>88</td><th scope=\"row\">Mercury</th><td>4,880</td><td>0.39</td><td>88</td><th scope=\"row\">Mercury</th><td>4,880</td><td>0.39</td><td>88</td></tr><tr><th scope=\"row\">Venus</th><td>12,104</td><td>0.72</td><td>225</td><th scope=\"row\">Venus</th><td>12,104</td><td>0.72</td><td>225</td><th scope=\"row\">Venus</th><td>12,104</td><td>0.72</td><td>225</td><th scope=\"row\">Venus</th><td>12,104</td><td>0.72</td><td>225</td></tr><tr><th scope=\"row\">Earth</th><td>12,742</td><td>1.00</td><td>365</td><th scope=\"row\">Earth</th><td>12,742</td><td>1.00</td><td>365</td><th scope=\"row\">Earth</th><td>12,742</td><td>1.00</td><td>365</td><th scope=\"row\">Earth</th><td>12,742</td><td>1.00</td><td>365</td></tr><tr><th scope=\"row\">Mars</th><td>6,779</td><td>1.52</td><td>687</td><th scope=\"row\">Mars</th><td>6,779</td><td>1.52</td><td>687</td><th scope=\"row\">Mars</th><td>6,779</td><td>1.52</td><td>687</td><th scope=\"row\">Mars</th><td>6,779</td><td>1.52</td><td>687</td></tr></tbody><tfoot><tr><th scope=\"row\">Average</th><td>9,126</td><td>0.91</td><td>341</td><th scope=\"row\">Average</th><td>9,126</td><td>0.91</td><td>341</td><th scope=\"row\">Average</th><td>9,126</td><td>0.91</td><td>341</td><th scope=\"row\">Average</th><td>9,126</td><td>0.91</td><td>341</td></tr></tfoot></table></div></body></html>")
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Class: "pg-rounded", Disabled: true}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.ColorInput, Class: "pg-rounded"}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.DateInput, Class: "pg-pill"}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.DatetimeInput, Class: "pg-pill", Valid: true}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.EmailInput, Placeholder: "email"}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.MonthInput, Class: "indigo"}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.NumberInput, ReadOnly: true}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.PasswordInput, Invalid: true}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.SearchInput}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.TelInput}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.TextInput, Class: "secondary"}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.TimeInput}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.UrlInput}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.WeekInput}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

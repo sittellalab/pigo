@@ -1,0 +1,62 @@
+package ui
+
+type InputVariant string
+
+const (
+	ColorInput    InputVariant = "color"
+	DateInput     InputVariant = "date"
+	DatetimeInput InputVariant = "datetime-local"
+	EmailInput    InputVariant = "email"
+	MonthInput    InputVariant = "month"
+	NumberInput   InputVariant = "number"
+	PasswordInput InputVariant = "password"
+	SearchInput   InputVariant = "search"
+	TelInput      InputVariant = "tel"
+	TextInput     InputVariant = "text"
+	TimeInput     InputVariant = "time"
+	UrlInput      InputVariant = "url"
+	WeekInput     InputVariant = "week"
+)
+
+type InputProps struct {
+	Type        InputVariant     // The type of input, defaults to text if not given
+	Class       string           // Additional classes to be added
+	Disabled    bool             // Disables the user from interacting with the input
+	Invalid     bool             // Applies error (red) styling to the input
+	Label       string           // Label to be added as aria-label attribute
+	Name        string           // The input name
+	Placeholder string           // Placeholder text for input field
+	ReadOnly    bool             // Makes the input a read only field
+	Required    bool             // Makes the input a required field
+	Valid       bool             // Applies success (green) styling to the input
+	Value       string           // The value of the input
+	Attributes  templ.Attributes // Additional optional attributes to add
+}
+
+// Input adds a text based (or color) input form control based on the given props
+templ Input(props InputProps) {
+	<input
+		if props.Type != "" {
+			type={ string(props.Type) }
+		} else {
+			type="text"
+		}
+		if props.Invalid {
+			aria-invalid="true"
+		}
+		if props.Valid {
+			aria-invalid="false"
+		}
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		aria-label={ props.Label }
+		class={ "pg", props.Class }
+		disabled?={ props.Disabled }
+		name={ props.Name }
+		placeholder={ props.Placeholder }
+		readonly?={ props.ReadOnly }
+		required?={ props.Required }
+		{ props.Attributes... }
+	/>
+}
