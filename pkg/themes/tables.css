@@ -1,0 +1,72 @@
+table.pg {
+	border: none;
+	border-collapse: collapse;
+	text-align: left;
+
+	& th,
+	& td {
+		padding: 0.5rem 1rem;
+	}
+
+	&.primary thead {
+		background-color: rgb(var(--bg-primary));
+		color: rgb(var(--inverse-primary));
+	}
+
+	&.secondary thead {
+		background-color: rgb(var(--bg-secondary));
+		color: rgb(var(--inverse-secondary));
+	}
+
+	&.contrast thead {
+		background-color: rgb(var(--bg-contrast));
+		color: rgb(var(--inverse-contrast));
+	}
+
+	&.danger thead {
+		background-color: rgb(var(--danger));
+		color: rgb(var(--inverse-danger));
+	}
+
+	&.success thead {
+		background-color: rgb(var(--success));
+		color: rgb(var(--inverse-success));
+	}
+
+	&.info thead {
+		background-color: rgb(var(--info));
+		color: rgb(var(--inverse-info));
+	}
+
+	&.striped tbody tr:nth-child(even) {
+		background-color: rgb(var(--bg-contrast) / .1);
+	}
+
+	&.warning thead {
+		background-color: rgb(var(--warning));
+		color: rgb(var(--inverse-warning));
+	}
+
+	&.hoverable tbody tr:hover {
+		background-color: rgb(var(--bg-contrast) / .2);
+		filter: brightness(200%);
+	}
+
+	thead tr:last-of-type :is(td, th) {
+		border-bottom: calc(2 * var(--border-width)) solid rgb(var(--bg-secondary));
+	}
+
+	& tbody {
+		& tr:last-of-type :is(td, th) {
+			border-bottom: calc(2 * var(--border-width)) solid rgb(var(--bg-secondary));
+		}
+
+		& tr:not(:first-of-type) :is(td, th) {
+			border-top: var(--border-width) solid rgb(var(--bg-secondary));
+		}
+	}
+
+	& tfoot tr:first-of-type :is(td, th) {
+		border-top: calc(2 * var(--border-width)) solid rgb(var(--bg-secondary));
+	}
+}

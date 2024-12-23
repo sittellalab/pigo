@@ -13,42 +13,124 @@ templ Stage() {
 		</head>
 		<body class="pg">
 			@ui.ThemeToggle(ui.ThemeToggleProps{})
-			<button>Non-Pigo button</button>
-			<button class="pg">Primary Button</button>
-			<button class="pg secondary pg-rounded">Secondary rounded Button</button>
-			<button class="pg contrast pg-pill">Contrast pill Button</button>
-			<button class="pg jade">Jade Button</button>
-			<button class="pg danger">Danger Button</button>
-			<button class="pg success">Success Button</button>
-			<button class="pg info">Info Button</button>
-			<button class="pg outline">Primary Button</button>
-			<button class="pg secondary outline">Secondary Button</button>
-			<button class="pg contrast outline">Contrast Button</button>
-			<button class="pg pumpkin outline">Pumpkin Button</button>
-			<button class="pg danger outline">Danger Button</button>
-			<button class="pg success outline">Success Button</button>
-			<button class="pg info outline">Info Button</button>
-			<button class="pg warning outline">Warning Button</button>
-			<input type="button" class="pg pg-rounded" value="Input rounded button"/>
-			<input type="submit" class="pg pg-pill" value="Input pill submit"/>
-			<input type="reset" class="pg" value="Input reset"/>
-			<input type="button" class="pg outline" value="Primary Button"/>
-			<input type="reset" class="pg secondary outline" value="Secondary Button"/>
-			<input type="submit" class="pg contrast outline" value="Contrast Button"/>
-			<input type="button" class="pg indigo outline" value="Indigo Button"/>
-			<input type="button" class="pg danger outline" value="Danger Button"/>
-			<input type="button" class="pg success outline" value="Success Button"/>
-			<input type="button" class="pg info outline" value="Info Button"/>
-			<input type="button" class="pg warning outline" value="Warning Button"/>
-			<a href="#" class="pg pg-rounded" role="button">Primary rounded Link button</a>
-			<a href="#" class="pg secondary pg-pill" role="button">Secondary pill Link button</a>
-			<a href="#" class="pg contrast" role="button">Contrast Link button</a>
-			<a href="#" class="pg danger" role="button">Danger Link button</a>
-			<a href="#" class="pg success" role="button">Success Link button</a>
-			<a href="#" class="pg info" role="button">Info Link button</a>
-			<a href="#" class="pg warning" role="button">Warning Link button</a>
-			<a href="#" class="pg slate" role="button">Slate Link button</a>
-			<a href="#" class="pg danger outline" role="button">Danger Link button</a>
+			<div>
+				<table class="pg hoverable striped primary">
+					<thead>
+						<tr>
+							<th scope="col">Planet</th>
+							<th scope="col">Diameter (km)</th>
+							<th scope="col">Distance to Sun (AU)</th>
+							<th scope="col">Orbit (days)</th>
+							<th scope="col">Planet</th>
+							<th scope="col">Diameter (km)</th>
+							<th scope="col">Distance to Sun (AU)</th>
+							<th scope="col">Orbit (days)</th>
+							<th scope="col">Planet</th>
+							<th scope="col">Diameter (km)</th>
+							<th scope="col">Distance to Sun (AU)</th>
+							<th scope="col">Orbit (days)</th>
+							<th scope="col">Planet</th>
+							<th scope="col">Diameter (km)</th>
+							<th scope="col">Distance to Sun (AU)</th>
+							<th scope="col">Orbit (days)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Mercury</th>
+							<td>4,880</td>
+							<td>0.39</td>
+							<td>88</td>
+							<th scope="row">Mercury</th>
+							<td>4,880</td>
+							<td>0.39</td>
+							<td>88</td>
+							<th scope="row">Mercury</th>
+							<td>4,880</td>
+							<td>0.39</td>
+							<td>88</td>
+							<th scope="row">Mercury</th>
+							<td>4,880</td>
+							<td>0.39</td>
+							<td>88</td>
+						</tr>
+						<tr>
+							<th scope="row">Venus</th>
+							<td>12,104</td>
+							<td>0.72</td>
+							<td>225</td>
+							<th scope="row">Venus</th>
+							<td>12,104</td>
+							<td>0.72</td>
+							<td>225</td>
+							<th scope="row">Venus</th>
+							<td>12,104</td>
+							<td>0.72</td>
+							<td>225</td>
+							<th scope="row">Venus</th>
+							<td>12,104</td>
+							<td>0.72</td>
+							<td>225</td>
+						</tr>
+						<tr>
+							<th scope="row">Earth</th>
+							<td>12,742</td>
+							<td>1.00</td>
+							<td>365</td>
+							<th scope="row">Earth</th>
+							<td>12,742</td>
+							<td>1.00</td>
+							<td>365</td>
+							<th scope="row">Earth</th>
+							<td>12,742</td>
+							<td>1.00</td>
+							<td>365</td>
+							<th scope="row">Earth</th>
+							<td>12,742</td>
+							<td>1.00</td>
+							<td>365</td>
+						</tr>
+						<tr>
+							<th scope="row">Mars</th>
+							<td>6,779</td>
+							<td>1.52</td>
+							<td>687</td>
+							<th scope="row">Mars</th>
+							<td>6,779</td>
+							<td>1.52</td>
+							<td>687</td>
+							<th scope="row">Mars</th>
+							<td>6,779</td>
+							<td>1.52</td>
+							<td>687</td>
+							<th scope="row">Mars</th>
+							<td>6,779</td>
+							<td>1.52</td>
+							<td>687</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th scope="row">Average</th>
+							<td>9,126</td>
+							<td>0.91</td>
+							<td>341</td>
+							<th scope="row">Average</th>
+							<td>9,126</td>
+							<td>0.91</td>
+							<td>341</td>
+							<th scope="row">Average</th>
+							<td>9,126</td>
+							<td>0.91</td>
+							<td>341</td>
+							<th scope="row">Average</th>
+							<td>9,126</td>
+							<td>0.91</td>
+							<td>341</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 		</body>
 	</html>
 }

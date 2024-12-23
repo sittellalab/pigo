@@ -685,6 +685,80 @@ a.pg:not([role="button"]).warning:active {
   color: var(--warning-active);
 }
 
+table.pg {
+  border-collapse: collapse;
+  text-align: left;
+  border: none;
+}
+
+table.pg th {
+  padding: .5rem 1rem;
+}
+
+table.pg td {
+  padding: .5rem 1rem;
+}
+
+table.pg.primary thead {
+  background-color: rgb(var(--bg-primary));
+  color: rgb(var(--inverse-primary));
+}
+
+table.pg.secondary thead {
+  background-color: rgb(var(--bg-secondary));
+  color: rgb(var(--inverse-secondary));
+}
+
+table.pg.contrast thead {
+  background-color: rgb(var(--bg-contrast));
+  color: rgb(var(--inverse-contrast));
+}
+
+table.pg.danger thead {
+  background-color: rgb(var(--danger));
+  color: rgb(var(--inverse-danger));
+}
+
+table.pg.success thead {
+  background-color: rgb(var(--success));
+  color: rgb(var(--inverse-success));
+}
+
+table.pg.info thead {
+  background-color: rgb(var(--info));
+  color: rgb(var(--inverse-info));
+}
+
+table.pg.striped tbody tr:nth-child(2n) {
+  background-color: rgb(var(--bg-contrast) / .1);
+}
+
+table.pg.warning thead {
+  background-color: rgb(var(--warning));
+  color: rgb(var(--inverse-warning));
+}
+
+table.pg.hoverable tbody tr:hover {
+  background-color: rgb(var(--bg-contrast) / .2);
+  filter: brightness(200%);
+}
+
+table.pg thead tr:last-of-type :is(td, th) {
+  border-bottom: calc(2 * var(--border-width)) solid rgb(var(--bg-secondary));
+}
+
+table.pg tbody tr:last-of-type :is(td, th) {
+  border-bottom: calc(2 * var(--border-width)) solid rgb(var(--bg-secondary));
+}
+
+table.pg tbody tr:not(:first-of-type) :is(td, th) {
+  border-top: var(--border-width) solid rgb(var(--bg-secondary));
+}
+
+table.pg tfoot tr:first-of-type :is(td, th) {
+  border-top: calc(2 * var(--border-width)) solid rgb(var(--bg-secondary));
+}
+
 .amber {
   --bg-primary: 255 191 0;
   --text-primary: 135 100 0;
@@ -1088,4 +1162,8 @@ body.pg {
 
 .pg-pill {
   border-radius: var(--border-pill);
+}
+
+.pg-scrollable {
+  overflow: scroll;
 }

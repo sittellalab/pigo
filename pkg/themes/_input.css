@@ -2,6 +2,7 @@
 @import "../icons/_index.css";
 @import "buttons.css";
 @import "links.css";
+@import "tables.css";
 
 /*
 * Colours
@@ -414,4 +415,8 @@ body.pg {
 
 .pg-pill {
 	border-radius: var(--border-pill);
+}
+
+.pg-scrollable {
+  overflow: scroll;
 }
