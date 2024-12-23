@@ -358,6 +358,246 @@
   }
 }
 
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg {
+  border-style: solid;
+  border-width: var(--border-width);
+  cursor: pointer;
+  font-size: inherit;
+  text-align: center;
+  transition: background-color var(--transition);
+  padding: .375rem .5rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg:not(:is(.pg-rounded, .pg-pill)) {
+  border-radius: 0;
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg:active {
+  transition: none;
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg {
+  background-color: rgb(var(--bg-primary));
+  border-color: rgb(var(--bg-primary));
+  color: rgb(var(--inverse-primary));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg:not([type="reset"]):hover {
+  background-color: var(--bg-primary-hover);
+  border-color: var(--bg-primary-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg:not([type="reset"]):active {
+  background-color: var(--bg-primary-active);
+  border-color: var(--bg-primary-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.secondary {
+  background-color: rgb(var(--bg-secondary));
+  border-color: rgb(var(--bg-secondary));
+  color: rgb(var(--inverse-secondary));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg[type="reset"] {
+  background-color: rgb(var(--bg-secondary));
+  border-color: rgb(var(--bg-secondary));
+  color: rgb(var(--inverse-secondary));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.secondary:hover {
+  background-color: var(--bg-secondary-hover);
+  border-color: var(--bg-secondary-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg[type="reset"]:hover {
+  background-color: var(--bg-secondary-hover);
+  border-color: var(--bg-secondary-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.secondary:active {
+  background-color: var(--bg-secondary-active);
+  border-color: var(--bg-secondary-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg[type="reset"]:active {
+  background-color: var(--bg-secondary-active);
+  border-color: var(--bg-secondary-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.contrast {
+  background-color: rgb(var(--bg-contrast));
+  border-color: rgb(var(--bg-contrast));
+  color: rgb(var(--inverse-contrast));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.contrast:hover {
+  background-color: var(--bg-contrast-hover);
+  border-color: var(--bg-contrast-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.contrast:active {
+  background-color: var(--bg-contrast-active);
+  border-color: var(--bg-contrast-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.danger {
+  background-color: rgb(var(--danger));
+  border-color: rgb(var(--danger));
+  color: rgb(var(--inverse-danger));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.danger:hover {
+  background-color: var(--danger-hover);
+  border-color: var(--danger-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.danger:active {
+  background-color: var(--danger-active);
+  border-color: var(--danger-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.success {
+  background-color: rgb(var(--success));
+  border-color: rgb(var(--success));
+  color: rgb(var(--inverse-success));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.success:hover {
+  background-color: var(--success-hover);
+  border-color: var(--success-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.success:active {
+  background-color: var(--success-active);
+  border-color: var(--success-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.info {
+  background-color: rgb(var(--info));
+  border-color: rgb(var(--info));
+  color: rgb(var(--inverse-info));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.info:hover {
+  background-color: var(--info-hover);
+  border-color: var(--info-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.info:active {
+  background-color: var(--info-active);
+  border-color: var(--info-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.warning {
+  background-color: rgb(var(--warning));
+  border-color: rgb(var(--warning));
+  color: rgb(var(--inverse-warning));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.warning:hover {
+  background-color: var(--warning-hover);
+  border-color: var(--warning-hover);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.warning:active {
+  background-color: var(--warning-active);
+  border-color: var(--warning-active);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.outline {
+  color: rgb(var(--text-primary));
+  background-color: rgba(0, 0, 0, 0);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.outline:hover {
+  background-color: rgb(var(--bg-primary) / .1);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.outline:active {
+  background-color: rgb(var(--bg-primary) / .2);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.secondary.outline {
+  border-color: rgb(var(--bg-secondary));
+  color: rgb(var(--text-secondary));
+  background-color: rgba(0, 0, 0, 0);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.secondary.outline:hover {
+  background-color: rgb(var(--bg-secondary) / .1);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.secondary.outline:active {
+  background-color: rgb(var(--bg-secondary) / .2);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.contrast.outline {
+  border-color: rgb(var(--bg-contrast));
+  color: rgb(var(--text-contrast));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.contrast.outline:hover {
+  background-color: rgb(var(--bg-contrast) / .1);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.contrast.outline:active {
+  background-color: rgb(var(--bg-contrast) / .2);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.danger.outline {
+  border-color: rgb(var(--danger));
+  color: rgb(var(--danger));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.danger.outline:hover {
+  background-color: rgb(var(--danger) / .1);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.danger.outline:active {
+  background-color: rgb(var(--danger) / .2);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.success.outline {
+  border-color: rgb(var(--success));
+  color: rgb(var(--success));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.success.outline:hover {
+  background-color: rgb(var(--success) / .1);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.success.outline:active {
+  background-color: rgb(var(--success) / .2);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.info.outline {
+  border-color: rgb(var(--info));
+  color: rgb(var(--info));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.info.outline:hover {
+  background-color: rgb(var(--info) / .1);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.info.outline:active {
+  background-color: rgb(var(--info) / .2);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.warning.outline {
+  border-color: rgb(var(--warning));
+  color: rgb(var(--warning));
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.warning.outline:hover {
+  background-color: rgb(var(--warning) / .1);
+}
+
+:is(button, [type="button"], [type="submit"], [type="reset"], [role="button"]).pg.warning.outline:active {
+  background-color: rgb(var(--warning) / .2);
+}
+
 a.pg:not([role="button"]) {
   color: rgb(var(--text-primary));
   transition: color var(--transition);
