@@ -1,0 +1,83 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/icons"
+import "fmt"
+
+type ThemeToggleIcon int
+
+const (
+	ClassicToggle ThemeToggleIcon = iota
+	InnerMoonToggle
+	ExpandToggle
+	WithinToggle
+	AroundToggle
+	DarkSideToggle
+	HorizonToggle
+	EclipseToggle
+	LightbulbToggle
+	DarkInnerToggle
+	HalfSunToggle
+	SimpleToggle
+)
+
+type ThemeToggleProps struct {
+	// Optional: A theme toggle icon, names found at https://toggles.dev/
+	//
+	// If left blank, defaults to Classic icon
+	Icon ThemeToggleIcon
+	// Optional: A css size, e.g., 16px, 1em, 1rem, etc
+	//
+	// If left blank, defaults to 1em
+	Size string
+}
+
+// ThemeToggle will add an animated toggle switch that allows a user to manually toggle between light and dark mode.
+// To get the best out of this, component, place the `@ui.DetectTheme()` script component in the <head> of your document.
+//
+// Note: This component requires JavaScript to function.
+templ ThemeToggle(props ThemeToggleProps) {
+	<label
+		class="theme-toggle"
+		if props.Size != "" {
+			style={ fmt.Sprintf("font-size: %s;", props.Size) }
+		}
+	>
+		<input
+			id="theme-toggle"
+			class="sr"
+			type="checkbox"
+			aria-label="Toggle light/dark mode"
+			onclick="
+				if (event.target.checked) {
+					document.documentElement.setAttribute('data-theme', 'dark');
+					localStorage.setItem('theme', 'dark');
+				} else {
+					document.documentElement.setAttribute('data-theme', 'light');
+					localStorage.setItem('theme', 'light');
+				}
+			"
+		/>
+		@icons.ThemeToggleMap[int(props.Icon)]()
+	</label>
+}
+
+// DetectTheme when placed in the <head> of the html document will automatically detect the user theme preference and apply it
+script DetectTheme() {
+	// check for a cached theme preference
+	let theme = localStorage.getItem('theme');
+
+	// if no preference, derive it from preferred colour scheme
+	if (theme === null) {
+		theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+		localStorage.setItem('theme', theme);
+	}
+
+	// set the colour theme
+	document.documentElement.setAttribute('data-theme', theme);
+
+	// toggle the check box if possible
+	document.addEventListener('DOMContentLoaded', () => {
+			const toggle = document.getElementById('theme-toggle');
+			if (toggle !== null) toggle.checked = theme === 'dark';
+			}, {once: true});
+}

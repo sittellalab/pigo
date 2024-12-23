@@ -1,5 +1,7 @@
 package internal
 
+import "github.com/sittellalab/pigo/pkg/ui"
+
 templ Stage() {
 	<!DOCTYPE html>
 	<html lang="en">
@@ -7,7 +9,10 @@ templ Stage() {
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<link rel="stylesheet" href="pigo.min.css"/>
+			@ui.DetectTheme()
 		</head>
-		<body></body>
+		<body class="pg">
+			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "1.5rem"})
+		</body>
 	</html>
 }
