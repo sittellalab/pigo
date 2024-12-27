@@ -1,0 +1,15 @@
+.pg-rounded {
+  --pg-border-radius: 0.25rem;
+}
+
+.pg-pill {
+  --pg-border-radius: 9999px;
+}
+
+.pg-outline {
+  background-color: transparent !important;
+  color: rgb(var(--pg-outline-text)) !important;
+  &:hover {
+    background-color: rgb(var(--pg-outline-bg) / .1) !important;
+  }
+}

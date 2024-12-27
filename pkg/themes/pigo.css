@@ -1,7 +1,6 @@
 :root {
   --pg-border-width: .0625rem;
   --pg-font-size: 16px;
-  --pg-font-weight: 400;
   --pg-line-height: 1.2;
   --pg-outline-width: .125rem;
   --pg-text-margin: 1rem;
@@ -61,9 +60,9 @@
     --pg-text-selection: 1 170 255 / .1875;
     --pg-muted: 32 38 50;
     --pg-muted-text: 123 132 149;
-    --pg-primary: 1, 114, 173;
-    --bg-primary-hover: 1 127 192;
-    --pg-primary-text: 1, 170, 255;
+    --pg-primary: 1 114 173;
+    --pg-primary-hover: 1 127 192;
+    --pg-primary-text: 1 170 255;
     --pg-primary-text-hover: 121 192 255;
     --pg-primary-inverse: 255 255 255;
     --pg-secondary: 82 95 122;
@@ -108,9 +107,9 @@
   --pg-text-selection: 1 170 255 / .1875;
   --pg-muted: 32 38 50;
   --pg-muted-text: 123 132 149;
-  --pg-primary: 1, 114, 173;
-  --bg-primary-hover: 1 127 192;
-  --pg-primary-text: 1, 170, 255;
+  --pg-primary: 1 114 173;
+  --pg-primary-hover: 1 127 192;
+  --pg-primary-text: 1 170 255;
   --pg-primary-text-hover: 121 192 255;
   --pg-primary-inverse: 255 255 255;
   --pg-secondary: 82 95 122;
@@ -182,7 +181,6 @@
   background-color: rgb(var(--pg-main-bg));
   color: rgb(var(--pg-main-text));
   font-size: var(--pg-font-size);
-  font-weight: var(--pg-font-weight);
   line-height: var(--pg-line-height);
 }
 
@@ -195,20 +193,16 @@
   background-color: rgb(var(--pg-text-selection));
 }
 
-.rounded {
-  --pg-border-radius: .25rem;
-}
-
-.pill {
-  --pg-border-radius: 9999px;
-}
-
 a {
   color: rgb(var(--pg-primary-text));
 }
 
 a:hover {
   color: rgb(var(--pg-primary-text-hover));
+}
+
+a:active {
+  filter: brightness(90%);
 }
 
 a.pg-secondary {
@@ -257,6 +251,333 @@ a.pg-warning {
 
 a.pg-warning:hover {
   color: rgb(var(--pg-warning-text-hover));
+}
+
+button, a[role="button"] {
+  --pg-btn-h-padding: .75rem;
+  --pg-btn-v-padding: .375rem;
+  border-radius: var(--pg-border-radius);
+  border-style: solid;
+  border-width: var(--pg-border-width);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--pg-font-size);
+  height: calc(2 * var(--pg-btn-v-padding)  + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
+  line-height: var(--pg-line-height);
+  padding-block: var(--pg-btn-v-padding);
+  padding-inline: var(--pg-btn-h-padding);
+  text-align: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+input:is([type="button"], [type="reset"], [type="submit"]) {
+  --pg-btn-h-padding: .75rem;
+  --pg-btn-v-padding: .375rem;
+  border-radius: var(--pg-border-radius);
+  border-style: solid;
+  border-width: var(--pg-border-width);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--pg-font-size);
+  height: calc(2 * var(--pg-btn-v-padding)  + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
+  line-height: var(--pg-line-height);
+  padding-block: var(--pg-btn-v-padding);
+  padding-inline: var(--pg-btn-h-padding);
+  text-align: center;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+input:is([type="button"], [type="reset"], [type="submit"]):active {
+  filter: brightness(90%);
+}
+
+:is(button, a[role="button"]):active {
+  filter: brightness(90%);
+}
+
+button, a[role="button"] {
+  --pg-outline-bg: var(--pg-primary);
+  --pg-outline-text: var(--pg-primary-text);
+  background-color: rgb(var(--pg-primary));
+  border-color: rgb(var(--pg-primary));
+  color: rgb(var(--pg-primary-inverse));
+}
+
+input:is([type="button"], [type="submit"]) {
+  --pg-outline-bg: var(--pg-primary);
+  --pg-outline-text: var(--pg-primary-text);
+  background-color: rgb(var(--pg-primary));
+  border-color: rgb(var(--pg-primary));
+  color: rgb(var(--pg-primary-inverse));
+}
+
+input:is([type="button"], [type="submit"]):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-primary-hover));
+  border-color: rgb(var(--pg-primary-hover));
+}
+
+input[type="reset"].bg-primary {
+  --pg-outline-bg: var(--pg-primary);
+  --pg-outline-text: var(--pg-primary-text);
+  background-color: rgb(var(--pg-primary));
+  border-color: rgb(var(--pg-primary));
+  color: rgb(var(--pg-primary-inverse));
+}
+
+input[type="reset"].bg-primary:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-primary-hover));
+  border-color: rgb(var(--pg-primary-hover));
+}
+
+:is(button, a[role="button"]):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-primary-hover));
+  border-color: rgb(var(--pg-primary-hover));
+}
+
+button.pg-secondary, a[role="button"].pg-secondary {
+  --pg-outline-bg: var(--pg-secondary);
+  --pg-outline-text: var(--pg-secondary-text);
+  background-color: rgb(var(--pg-secondary));
+  border-color: rgb(var(--pg-secondary));
+  color: rgb(var(--pg-secondary-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-secondary {
+  --pg-outline-bg: var(--pg-secondary);
+  --pg-outline-text: var(--pg-secondary-text);
+  background-color: rgb(var(--pg-secondary));
+  border-color: rgb(var(--pg-secondary));
+  color: rgb(var(--pg-secondary-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-secondary:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-secondary-hover));
+  border-color: rgb(var(--pg-secondary-hover));
+}
+
+:is(button.pg-secondary, a[role="button"].pg-secondary):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-secondary-hover));
+  border-color: rgb(var(--pg-secondary-hover));
+}
+
+button.pg-contrast, a[role="button"].pg-contrast {
+  --pg-outline-bg: var(--pg-contrast);
+  --pg-outline-text: var(--pg-contrast-text);
+  background-color: rgb(var(--pg-contrast));
+  border-color: rgb(var(--pg-contrast));
+  color: rgb(var(--pg-contrast-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-contrast {
+  --pg-outline-bg: var(--pg-contrast);
+  --pg-outline-text: var(--pg-contrast-text);
+  background-color: rgb(var(--pg-contrast));
+  border-color: rgb(var(--pg-contrast));
+  color: rgb(var(--pg-contrast-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-contrast:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-contrast-hover));
+  border-color: rgb(var(--pg-contrast-hover));
+}
+
+input[type="reset"].bg-contrast {
+  --pg-outline-bg: var(--pg-contrast);
+  --pg-outline-text: var(--pg-contrast-text);
+  background-color: rgb(var(--pg-contrast));
+  border-color: rgb(var(--pg-contrast));
+  color: rgb(var(--pg-contrast-inverse));
+}
+
+input[type="reset"].bg-contrast:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-contrast-hover));
+  border-color: rgb(var(--pg-contrast-hover));
+}
+
+:is(button.pg-contrast, a[role="button"].pg-contrast):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-contrast-hover));
+  border-color: rgb(var(--pg-contrast-hover));
+}
+
+button.pg-danger, a[role="button"].pg-danger {
+  --pg-outline-bg: var(--pg-danger);
+  --pg-outline-text: var(--pg-danger-text);
+  background-color: rgb(var(--pg-danger));
+  border-color: rgb(var(--pg-danger));
+  color: rgb(var(--pg-danger-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-danger {
+  --pg-outline-bg: var(--pg-danger);
+  --pg-outline-text: var(--pg-danger-text);
+  background-color: rgb(var(--pg-danger));
+  border-color: rgb(var(--pg-danger));
+  color: rgb(var(--pg-danger-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-danger:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-danger-hover));
+  border-color: rgb(var(--pg-danger-hover));
+}
+
+input[type="reset"].bg-danger {
+  --pg-outline-bg: var(--pg-danger);
+  --pg-outline-text: var(--pg-danger-text);
+  background-color: rgb(var(--pg-danger));
+  border-color: rgb(var(--pg-danger));
+  color: rgb(var(--pg-danger-inverse));
+}
+
+input[type="reset"].bg-danger:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-danger-hover));
+  border-color: rgb(var(--pg-danger-hover));
+}
+
+:is(button.pg-danger, a[role="button"].pg-danger):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-danger-hover));
+  border-color: rgb(var(--pg-danger-hover));
+}
+
+button.pg-success, a[role="button"].pg-success {
+  --pg-outline-bg: var(--pg-success);
+  --pg-outline-text: var(--pg-success-text);
+  background-color: rgb(var(--pg-success));
+  border-color: rgb(var(--pg-success));
+  color: rgb(var(--pg-success-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-success {
+  --pg-outline-bg: var(--pg-success);
+  --pg-outline-text: var(--pg-success-text);
+  background-color: rgb(var(--pg-success));
+  border-color: rgb(var(--pg-success));
+  color: rgb(var(--pg-success-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-success:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-success-hover));
+  border-color: rgb(var(--pg-success-hover));
+}
+
+input[type="reset"].bg-success {
+  --pg-outline-bg: var(--pg-success);
+  --pg-outline-text: var(--pg-success-text);
+  background-color: rgb(var(--pg-success));
+  border-color: rgb(var(--pg-success));
+  color: rgb(var(--pg-success-inverse));
+}
+
+input[type="reset"].bg-success:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-success-hover));
+  border-color: rgb(var(--pg-success-hover));
+}
+
+:is(button.pg-success, a[role="button"].pg-success):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-success-hover));
+  border-color: rgb(var(--pg-success-hover));
+}
+
+button.pg-info, a[role="button"].pg-info {
+  --pg-outline-bg: var(--pg-info);
+  --pg-outline-text: var(--pg-info-text);
+  background-color: rgb(var(--pg-info));
+  border-color: rgb(var(--pg-info));
+  color: rgb(var(--pg-info-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-info {
+  --pg-outline-bg: var(--pg-info);
+  --pg-outline-text: var(--pg-info-text);
+  background-color: rgb(var(--pg-info));
+  border-color: rgb(var(--pg-info));
+  color: rgb(var(--pg-info-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-info:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-info-hover));
+  border-color: rgb(var(--pg-info-hover));
+}
+
+input[type="reset"].bg-info {
+  --pg-outline-bg: var(--pg-info);
+  --pg-outline-text: var(--pg-info-text);
+  background-color: rgb(var(--pg-info));
+  border-color: rgb(var(--pg-info));
+  color: rgb(var(--pg-info-inverse));
+}
+
+input[type="reset"].bg-info:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-info-hover));
+  border-color: rgb(var(--pg-info-hover));
+}
+
+:is(button.pg-info, a[role="button"].pg-info):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-info-hover));
+  border-color: rgb(var(--pg-info-hover));
+}
+
+button.pg-warning, a[role="button"].pg-warning {
+  --pg-outline-bg: var(--pg-warning);
+  --pg-outline-text: var(--pg-warning-text);
+  background-color: rgb(var(--pg-warning));
+  border-color: rgb(var(--pg-warning));
+  color: rgb(var(--pg-warning-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-warning {
+  --pg-outline-bg: var(--pg-warning);
+  --pg-outline-text: var(--pg-warning-text);
+  background-color: rgb(var(--pg-warning));
+  border-color: rgb(var(--pg-warning));
+  color: rgb(var(--pg-warning-inverse));
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]).pg-warning:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-warning-hover));
+  border-color: rgb(var(--pg-warning-hover));
+}
+
+input[type="reset"].bg-warning {
+  --pg-outline-bg: var(--pg-warning);
+  --pg-outline-text: var(--pg-warning-text);
+  background-color: rgb(var(--pg-warning));
+  border-color: rgb(var(--pg-warning));
+  color: rgb(var(--pg-warning-inverse));
+}
+
+input[type="reset"].bg-warning:not(.pg-outline):hover {
+  background-color: rgb(var(--pg-warning-hover));
+  border-color: rgb(var(--pg-warning-hover));
+}
+
+:is(button.pg-warning, a[role="button"].pg-warning):not(.pg-outline):hover {
+  background-color: rgb(var(--pg-warning-hover));
+  border-color: rgb(var(--pg-warning-hover));
+}
+
+.pg-rounded {
+  --pg-border-radius: .25rem;
+}
+
+.pg-pill {
+  --pg-border-radius: 9999px;
+}
+
+.pg-outline {
+  color: rgb(var(--pg-outline-text)) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.pg-outline:hover {
+  background-color: rgb(var(--pg-outline-bg) / .1) !important;
 }
 
 .pg-theme-toggle {
