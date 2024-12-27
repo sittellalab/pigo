@@ -71,10 +71,10 @@
     --pg-secondary-text-hover: 72 83 107;
     --pg-secondary-inverse: 255 255 255;
     --pg-contrast: 239 241 244;
-    --pg-contrast-hover: 0 0 0;
+    --pg-contrast-hover: 255 255 255;
     --pg-contrast-text: 223 227 235;
-    --pg-contrast-text-hover: 0 0 0;
-    --pg-contrast-inverse: 255 255 255;
+    --pg-contrast-text-hover: 255 255 255;
+    --pg-contrast-inverse: 0 0 0;
     --pg-danger: 197 47 33;
     --pg-danger-hover: 245 163 144;
     --pg-danger-text: 241 121 97;
@@ -116,10 +116,10 @@
   --pg-secondary-text-hover: 72 83 107;
   --pg-secondary-inverse: 255 255 255;
   --pg-contrast: 239 241 244;
-  --pg-contrast-hover: 0 0 0;
+  --pg-contrast-hover: 255 255 255;
   --pg-contrast-text: 223 227 235;
-  --pg-contrast-text-hover: 0 0 0;
-  --pg-contrast-inverse: 255 255 255;
+  --pg-contrast-text-hover: 255 255 255;
+  --pg-contrast-inverse: 0 0 0;
   --pg-danger: 197 47 33;
   --pg-danger-hover: 245 163 144;
   --pg-danger-text: 241 121 97;
@@ -198,4 +198,53 @@
 
 .pill {
   --pg-border-radius: 9999px;
+}
+
+a {
+  color: rgb(var(--pg-primary-text));
+  &:hover {
+    color: rgb(var(--pg-primary-text-hover));
+  }
+}
+
+a.pg-secondary {
+  color: rgb(var(--pg-secondary-text));
+  &:hover {
+    color: rgb(var(--pg-secondary-text-hover));
+  }
+}
+
+a.pg-contrast {
+  color: rgb(var(--pg-contrast-text));
+  &:hover {
+    color: rgb(var(--pg-contrast-text-hover));
+  }
+}
+
+a.pg-danger {
+  color: rgb(var(--pg-danger-text));
+  &:hover {
+    color: rgb(var(--pg-danger-text-hover));
+  }
+}
+
+a.pg-success {
+  color: rgb(var(--pg-success-text));
+  &:hover {
+    color: rgb(var(--pg-success-text-hover));
+  }
+}
+
+a.pg-info {
+  color: rgb(var(--pg-info-text));
+  &:hover {
+    color: rgb(var(--pg-info-text-hover));
+  }
+}
+
+a.pg-warning {
+  color: rgb(var(--pg-warning-text));
+  &:hover {
+    color: rgb(var(--pg-warning-text-hover));
+  }
 }

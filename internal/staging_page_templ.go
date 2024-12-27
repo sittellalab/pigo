@@ -47,7 +47,7 @@ func Stage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<br><a href=\"#\">Primary</a> <a href=\"#\" class=\"pg-secondary\">Secondary</a> <a href=\"#\" class=\"pg-contrast\">Contrast</a> <a href=\"#\" class=\"pg-danger\">Danger</a> <a href=\"#\" class=\"pg-success\">Success</a> <a href=\"#\" class=\"pg-info\">Info</a> <a href=\"#\" class=\"pg-warning\">Warning</a></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
