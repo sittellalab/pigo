@@ -1,0 +1,201 @@
+:root {
+  --pg-border-width: 0.0625rem;
+  --pg-font-size: 16px;
+  --pg-font-weight: 400;
+  --pg-line-height: 1.2;
+  --pg-outline-width: 0.125rem;
+  --pg-text-margin: 1rem;
+  --pg-transition: 0.2s ease-in-out;
+}
+
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pg-main-bg: 255 255 255;
+  --pg-main-text: 55 60 68;
+  --pg-text-selection: 2 154 232 / .25;
+  --pg-muted: 231 234 240;
+  --pg-muted-text: 100 107 121;
+  --pg-primary: 1 114 173;
+  --pg-primary-hover: 2 101 154;
+  --pg-primary-text: 1 114 173;
+  --pg-primary-text-hover: 1 88 135;
+  --pg-primary-inverse: 255 255 255;
+  --pg-secondary: 82 95 122;
+  --pg-secondary-hover: 72 83 107;
+  --pg-secondary-text: 93 107 137;
+  --pg-secondary-text-hover: 72 83 107;
+  --pg-secondary-inverse: 255 255 255;
+  --pg-contrast: 24 28 37;
+  --pg-contrast-hover: 0 0 0;
+  --pg-contrast-text: 24 28 37;
+  --pg-contrast-text-hover: 0 0 0;
+  --pg-contrast-inverse: 255 255 255;
+  --pg-danger: 197 47 33;
+  --pg-danger-hover: 175 41 29;
+  --pg-danger-text: 197 47 33;
+  --pg-danger-text-hover: 155 35 24;
+  --pg-danger-inverse: 255 255 255;
+  --pg-info: 4 120 120;
+  --pg-info-hover: 4 106 106;
+  --pg-info-text: 4 120 120;
+  --pg-info-text-hover: 2 93 93;
+  --pg-info-inverse: 255 255 255;
+  --pg-success: 57 135 18;
+  --pg-success-hover: 51 121 15;
+  --pg-success-text: 51 121 15;
+  --pg-success-text-hover: 38 94 9;
+  --pg-success-inverse: 255 255 255;
+  --pg-warning: 255 191 0;
+  --pg-warning-hover: 232 174 1;
+  --pg-warning-text: 135 100 0;
+  --pg-warning-text-hover: 105 77 0;
+  --pg-warning-inverse: 0 0 0;
+  color-scheme: light;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --pg-main-bg: 19 23 31;
+    --pg-main-text: 194 199 208;
+    --pg-text-selection: 1 170 255 / .1875;
+    --pg-muted: 32 38 50;
+    --pg-muted-text: 123 132 149;
+    --pg-primary: 1, 114, 173;
+    --bg-primary-hover: 1 127 192;
+    --pg-primary-text: 1, 170, 255;
+    --pg-primary-text-hover: 121 192 255;
+    --pg-primary-inverse: 255 255 255;
+    --pg-secondary: 82 95 122;
+    --pg-secondary-hover: 93 107 137;
+    --pg-secondary-text: 93 107 137;
+    --pg-secondary-text-hover: 72 83 107;
+    --pg-secondary-inverse: 255 255 255;
+    --pg-contrast: 239 241 244;
+    --pg-contrast-hover: 0 0 0;
+    --pg-contrast-text: 223 227 235;
+    --pg-contrast-text-hover: 0 0 0;
+    --pg-contrast-inverse: 255 255 255;
+    --pg-danger: 197 47 33;
+    --pg-danger-hover: 245 163 144;
+    --pg-danger-text: 241 121 97;
+    --pg-danger-text-hover: 217 53 38;
+    --pg-danger-inverse: 255 255 255;
+    --pg-info: 4 120 120;
+    --pg-info-hover: 5 134 134;
+    --pg-info-text: 10 177 177;
+    --pg-info-text-hover: 12 206 206;
+    --pg-info-inverse: 255 255 255;
+    --pg-success: 57 135 18;
+    --pg-success-hover: 64 150 20;
+    --pg-success-text: 78 179 27;
+    --pg-success-text-hover: 93 209 33;
+    --pg-success-inverse: 255 255 255;
+    --pg-warning: 255 191 0;
+    --pg-warning-hover: 254 204 99;
+    --pg-warning-text: 199 148 0;
+    --pg-warning-text-hover: 232 174 1;
+    --pg-warning-inverse: 0 0 0;
+    color-scheme: dark;
+  }
+}
+
+[data-theme=dark] {
+  --pg-main-bg: 19 23 31;
+  --pg-main-text: 194 199 208;
+  --pg-text-selection: 1 170 255 / .1875;
+  --pg-muted: 32 38 50;
+  --pg-muted-text: 123 132 149;
+  --pg-primary: 1, 114, 173;
+  --bg-primary-hover: 1 127 192;
+  --pg-primary-text: 1, 170, 255;
+  --pg-primary-text-hover: 121 192 255;
+  --pg-primary-inverse: 255 255 255;
+  --pg-secondary: 82 95 122;
+  --pg-secondary-hover: 93 107 137;
+  --pg-secondary-text: 93 107 137;
+  --pg-secondary-text-hover: 72 83 107;
+  --pg-secondary-inverse: 255 255 255;
+  --pg-contrast: 239 241 244;
+  --pg-contrast-hover: 0 0 0;
+  --pg-contrast-text: 223 227 235;
+  --pg-contrast-text-hover: 0 0 0;
+  --pg-contrast-inverse: 255 255 255;
+  --pg-danger: 197 47 33;
+  --pg-danger-hover: 245 163 144;
+  --pg-danger-text: 241 121 97;
+  --pg-danger-text-hover: 217 53 38;
+  --pg-danger-inverse: 255 255 255;
+  --pg-info: 4 120 120;
+  --pg-info-hover: 5 134 134;
+  --pg-info-text: 10 177 177;
+  --pg-info-text-hover: 12 206 206;
+  --pg-info-inverse: 255 255 255;
+  --pg-success: 57 135 18;
+  --pg-success-hover: 64 150 20;
+  --pg-success-text: 78 179 27;
+  --pg-success-text-hover: 93 209 33;
+  --pg-success-inverse: 255 255 255;
+  --pg-warning: 255 191 0;
+  --pg-warning-hover: 254 204 99;
+  --pg-warning-text: 199 148 0;
+  --pg-warning-text-hover: 232 174 1;
+  --pg-warning-inverse: 0 0 0;
+  color-scheme: dark;
+}
+
+@media screen and (min-width: 576px) {
+  :root {
+    --pg-font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --pg-font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --pg-font-size: 19px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  :root {
+    --pg-font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  :root {
+    --pg-font-size: 21px;
+  }
+}
+
+:root {
+  background-color: rgb(var(--pg-main-bg));
+  color: rgb(var(--pg-main-text));
+  font-size: var(--pg-font-size);
+  font-weight: var(--pg-font-weight);
+  line-height: var(--pg-line-height);
+}
+
+*, 
+::before,
+::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+::selection {
+  background-color: rgb(var(--pg-text-selection));
+}
+
+.rounded {
+  --pg-border-radius: 0.25rem;
+}
+
+.pill {
+  --pg-border-radius: 9999px;
+}
