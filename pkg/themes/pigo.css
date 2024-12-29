@@ -5,6 +5,7 @@
   --pg-outline-width: .125rem;
   --pg-text-margin: 1rem;
   --pg-transition: .2s ease-in-out;
+  --pg-icon-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(136, 145, 164)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
 [data-theme="light"], :root:not([data-theme="dark"]) {
@@ -1097,6 +1098,65 @@ label.pg-label-responsive input::-ms-input-placeholder {
 
 label.pg-label-responsive input::placeholder {
   opacity: 0;
+}
+
+select {
+  -ms-appearance: none;
+  appearance: none;
+  background-color: rgb(var(--pg-muted));
+  border-color: rgb(var(--pg-muted-text));
+  border-radius: var(--pg-border-radius);
+  border-style: solid;
+  border-width: var(--pg-border-width);
+  color: rgb(var(--pg-main-text));
+  font-family: inherit;
+  font-size: var(--pg-font-size);
+  line-height: var(--pg-line-height);
+  width: 100%;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding: .325rem .75rem;
+  display: block;
+}
+
+select:not([multiple]) {
+  background-image: var(--pg-icon-chevron);
+  height: calc(2 * .325rem + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
+  background-position: right .375rem center;
+}
+
+select:focus {
+  background-color: rgb(var(--pg-main-bg));
+  border-color: rgb(var(--pg-primary));
+  outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
+  outline-offset: calc(-.5 * var(--pg-outline-width));
+}
+
+select:has( + small:not(:empty)) {
+  margin-bottom: 0;
+}
+
+select + small:not(:empty) {
+  margin-top: .25rem;
+  margin-bottom: .5rem;
+}
+
+select[aria-invalid="true"] {
+  border-color: rgb(var(--pg-danger));
+  outline-color: rgb(var(--pg-danger));
+}
+
+select[aria-invalid="true"] + small {
+  color: rgb(var(--pg-danger-text));
+}
+
+select[aria-invalid="false"] {
+  border-color: rgb(var(--pg-success));
+  outline-color: rgb(var(--pg-success));
+}
+
+select[aria-invalid="false"] + small {
+  color: rgb(var(--pg-success-text));
 }
 
 textarea {

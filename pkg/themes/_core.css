@@ -5,6 +5,7 @@
   --pg-outline-width: 0.125rem;
   --pg-text-margin: 1rem;
   --pg-transition: 0.2s ease-in-out;
+  --pg-icon-chevron:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(136, 145, 164)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
 [data-theme=light],

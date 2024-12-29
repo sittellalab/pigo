@@ -1,0 +1,71 @@
+package ui
+
+import "strconv"
+import "github.com/sittellalab/pigo/pkg/lib"
+
+type SelectStatus int
+
+const (
+	SelectInvalid SelectStatus = iota + 1
+	SelectValid
+)
+
+type SelectProps struct {
+	Class             string       // Adds optional additional classes to the select
+	Disabled          bool         // Disables the select if true
+	HelperText        string       // Adds optional helper text underneath the select
+	ID                string       // A unique ID to add to the select
+	Label             string       // Adds a label to the select as an aria-label attribute
+	Multiple          bool         // Allows multiple options to be selected
+	Name              string       // Adds the select name
+	Placeholder       string       // Adds placeholder text to text based elements
+	Required          bool         // Ensures the select is required if true
+	Size              int          // Specifies how many items can be visible at once
+	Style             InputStyle   // Applies optional shape styling to the select, defaults to square
+	Valid             SelectStatus // Applies validation styling to the select
+	ValidationMessage string       // An optional message to accompany the validation status
+	templ.Attributes               // Adds optional additional attributes to add to the select
+}
+
+// Select will render a select.
+//
+// Note: When the Valid field is used, some JavaScript is executed when the user interacts with the select element.
+// This JavaScript removes the applied validation styling and returns the validation message to the HelperText if given.
+// The Select component itself does not require JavaScript.
+// If a user has JavaScript disabled, the interactivity in the styling of the Select will fail gracefully.
+templ Select(props SelectProps) {
+	<select
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Class != "" || props.Style != SquaredInput {
+			class={ string(lib.Coalesce(string(props.Style), string(SquaredInput))), props.Class }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		if props.Label != "" {
+			aria-label={ props.Label }
+		}
+		if props.Size > 0 {
+			size={ strconv.Itoa(props.Size) }
+		}
+		if props.Valid > 0 {
+			aria-invalid={ strconv.FormatBool(props.Valid == SelectInvalid) }
+			onchange="
+				this.removeAttribute('aria-invalid');
+			this.nextElementSibling.textContent = this.nextElementSibling.getAttribute('data-default');
+			"
+		}
+		disabled?={ props.Disabled }
+		multiple?={ props.Multiple }
+		required?={ props.Required }
+		{ props.Attributes... }
+	>
+		if props.Placeholder != "" {
+			<option disabled selected?={ !props.Multiple } value="">{ props.Placeholder }</option>
+		}
+		{ children... }
+	</select>
+	<small data-default={ props.HelperText }>{ lib.IIF(props.Valid > 0, props.ValidationMessage, props.HelperText) }</small>
+}
