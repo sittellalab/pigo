@@ -1,0 +1,58 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/lib"
+import "strconv"
+
+type CheckboxStatus int
+
+const (
+	CheckboxInvalid CheckboxStatus = iota + 1
+	CheckboxValid
+)
+
+type CheckboxProps struct {
+	Checked          bool           // Checks the checkbox if true
+	Class            string         // Adds optional additional classes to the checkbox
+	Disabled         bool           // Disables the checkbox if true
+	ID               string         // A unique ID to add to the checkbox
+	Label            string         // Adds a label to the checkbox
+	Name             string         // Adds the checkbox name
+	Style            InputStyle     // Applies optional shape styling to the checkbox, defaults to square
+	Value            string         // Sets the checkbox value
+	Valid            CheckboxStatus // Applies validation styling to the checkbox
+	templ.Attributes                // Adds optional additional attributes to add to the checkbox
+}
+
+// Checkbox will render a checkbox input.
+//
+// Note: When the Valid field is used, some JavaScript is executed when the user interacts with the checkbox element.
+// This JavaScript removes the applied validation styling.
+// The Checkbox component itself does not require JavaScript.
+// If a user has JavaScript disabled, the interactivity in the styling of the Checkbox will fail gracefully.
+templ Checkbox(props CheckboxProps) {
+	<label>
+		<input
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Class != "" || props.Style != SquaredInput {
+				class={ lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }
+			}
+			if props.Valid > 0 {
+				aria-invalid={ strconv.FormatBool(props.Valid == CheckboxInvalid) }
+				onclick="this.removeAttribute('aria-invalid');"
+			}
+			type="checkbox"
+			checked?={ props.Checked }
+			disabled?={ props.Disabled }
+			{ props.Attributes... }
+		/>
+		{ props.Label }
+	</label>
+}

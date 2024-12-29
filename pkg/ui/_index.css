@@ -1,4 +1,5 @@
-@import "theme_toggle.css";
+@import "checkbox.css";
 @import "input.css";
 @import "select.css";
+@import "theme_toggle.css";
 @import "textarea.css";

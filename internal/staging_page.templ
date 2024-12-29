@@ -14,26 +14,10 @@ templ Stage() {
 		<body>
 			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "50px"})
 			<br/>
-			@ui.Select(ui.SelectProps{Placeholder: "select an option", HelperText: "helper text", Style: ui.PillInput}) {
-				<option value="x">X</option>
-				<option value="y">Y</option>
-				<option value="z">Z</option>
-			}
-			@ui.Select(ui.SelectProps{Multiple: true, Placeholder: "select an option", HelperText: "helper text", Style: ui.RoundedInput}) {
-				<option value="x">X</option>
-				<option value="y">Y</option>
-				<option value="z">Z</option>
-			}
-			@ui.Select(ui.SelectProps{Placeholder: "select an option", Multiple: true, HelperText: "helper text", Valid: ui.SelectInvalid, ValidationMessage: "invalid"}) {
-				<option value="x">X</option>
-				<option value="y">Y</option>
-				<option value="z">Z</option>
-			}
-			@ui.Select(ui.SelectProps{Placeholder: "select an option", HelperText: "helper text", Valid: ui.SelectValid, ValidationMessage: "valid"}) {
-				<option value="x">X</option>
-				<option value="y">Y</option>
-				<option value="z">Z</option>
-			}
+			@ui.Checkbox(ui.CheckboxProps{Checked: true, Label: "checkbox"})
+			@ui.Checkbox(ui.CheckboxProps{Label: "checkbox"})
+			@ui.Checkbox(ui.CheckboxProps{Label: "checkbox", Style: ui.RoundedInput, Valid: ui.CheckboxValid})
+			@ui.Checkbox(ui.CheckboxProps{Label: "checkbox", Style: ui.PillInput, Valid: ui.CheckboxInvalid})
 		</body>
 	</html>
 }
