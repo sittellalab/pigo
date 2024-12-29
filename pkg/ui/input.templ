@@ -1,0 +1,125 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/lib"
+
+type InputType string
+
+const (
+	Color         InputType = "color"
+	Date          InputType = "date"
+	DatetimeLocal InputType = "datetime-local"
+	Email         InputType = "email"
+	Month         InputType = "month"
+	Number        InputType = "number"
+	Password      InputType = "password"
+	Tel           InputType = "tel"
+	Text          InputType = "text"
+	Time          InputType = "time"
+	Url           InputType = "url"
+	Week          InputType = "week"
+)
+
+type InputLabel string
+
+const (
+	LabelNone       InputLabel = ""
+	LabelTop        InputLabel = "pg-label-top"
+	LabelLeft       InputLabel = "pg-label-left"
+	LabelResponsive InputLabel = "pg-label-responsive"
+)
+
+type InputStyle string
+
+const (
+	SquaredInput InputStyle = ""
+	RoundedInput InputStyle = "pg-rounded"
+	PillInput    InputStyle = "pg-pill"
+)
+
+// InputValidator adds a validation callback function with optional error and success messages to an input
+type InputValidator struct {
+	// The name of a JavaScript function with the signature `function(value: string): boolean`.
+	//
+	// E.g., if you defined a function named `validateDate`, pass "validateDate" as the value to Callback
+	Callback       templ.JSExpression
+	ErrorMessage   string // An optional error message to be shown when the input is not valid
+	SuccessMessage string // An optional success message to be shown when the input is valid
+}
+
+type InputProps struct {
+	Class            string         // Adds optional additional classes to the input field
+	Disabled         bool           // Disables the input if true
+	HelperText       string         // Adds optional helper text underneath the input field
+	ID               string         // A unique ID to add to the input
+	Label            string         // Adds a label to the input as an aria-label attribute
+	LabelElement     InputLabel     // Adds an optional a label element if specified
+	Placeholder      string         // Adds placeholder text to text based elements
+	Style            InputStyle     // Applies optional shape styling to the input, defaults to square
+	Required         bool           // Ensures the input is required if true
+	Type             InputType      // Defines the type of input, defaults to text if not given
+	Validator        InputValidator // Adds an optional validation callback function
+	Value            string         // An optional value to default the input to
+	templ.Attributes                // Adds optional additional attributes to add to the input
+}
+
+// Input will render an input of the specified type.
+//
+// Note: While the Validator field requires JavaScript to function, the Input component itself does not require JavaScript.
+// If a user has JavaScript disabled, the Validator field of the Input will fail gracefully.
+templ Input(props InputProps) {
+	if props.LabelElement != LabelNone {
+		<label class={ string(props.LabelElement) }>
+			<span>{ props.Label }</span>
+			@input(props)
+		</label>
+	} else {
+		@input(props)
+	}
+}
+
+templ input(props InputProps) {
+	<input
+		type={ lib.Coalesce(string(props.Type), string(Text)) }
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Style != SquaredInput || props.Class != "" {
+			class={ lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }
+		}
+		if props.Validator.Callback != "" {
+			oninput={ inputValidator(
+				templ.JSExpression("this"),
+				props.Validator.Callback,
+				props.HelperText,
+				props.Validator.ErrorMessage,
+				props.Validator.SuccessMessage,
+			) }
+		}
+		if props.Label != "" {
+			aria-label={ props.Label }
+		}
+		placeholder={ props.Placeholder }
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		disabled?={ props.Disabled }
+		required?={ props.Required }
+		{ props.Attributes... }
+	/>
+	<small>{ props.HelperText }</small>
+}
+
+script inputValidator(thiss, callback templ.JSExpression, initial, error, success string) {
+	if (typeof callback !== "function") return console.error("The validation callback is not a function\nTriggered by:", t);
+
+	if (!thiss.value) {
+		thiss.nextElementSibling.textContent = initial;
+		thiss.removeAttribute("aria-invalid");
+	} else if (callback(thiss.value)) {
+		thiss.nextElementSibling.textContent = success;
+		thiss.setAttribute("aria-invalid", "false");
+	} else {
+		thiss.nextElementSibling.textContent = error;
+		thiss.setAttribute("aria-invalid", "true");
+	}
+}

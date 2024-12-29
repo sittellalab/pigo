@@ -192,9 +192,11 @@
 
 a {
   color: rgb(var(--pg-primary-text));
+
   &:hover {
     color: rgb(var(--pg-primary-text-hover));
   }
+
   &:active {
     filter: brightness(90%);
   }
@@ -202,6 +204,7 @@ a {
 
 a.pg-secondary {
   color: rgb(var(--pg-secondary-text));
+
   &:hover {
     color: rgb(var(--pg-secondary-text-hover));
   }
@@ -209,6 +212,7 @@ a.pg-secondary {
 
 a.pg-contrast {
   color: rgb(var(--pg-contrast-text));
+
   &:hover {
     color: rgb(var(--pg-contrast-text-hover));
   }
@@ -216,6 +220,7 @@ a.pg-contrast {
 
 a.pg-danger {
   color: rgb(var(--pg-danger-text));
+
   &:hover {
     color: rgb(var(--pg-danger-text-hover));
   }
@@ -223,6 +228,7 @@ a.pg-danger {
 
 a.pg-success {
   color: rgb(var(--pg-success-text));
+
   &:hover {
     color: rgb(var(--pg-success-text-hover));
   }
@@ -230,6 +236,7 @@ a.pg-success {
 
 a.pg-info {
   color: rgb(var(--pg-info-text));
+
   &:hover {
     color: rgb(var(--pg-info-text-hover));
   }
@@ -237,6 +244,7 @@ a.pg-info {
 
 a.pg-warning {
   color: rgb(var(--pg-warning-text));
+
   &:hover {
     color: rgb(var(--pg-warning-text-hover));
   }
@@ -245,8 +253,6 @@ a.pg-warning {
 button,
 input:is([type=button], [type=reset], [type=submit]),
 a[role=button] {
-  --pg-btn-h-padding: 0.75rem;
-  --pg-btn-v-padding: 0.375rem;
   border-radius: var(--pg-border-radius);
   border-style: solid;
   border-width: var(--pg-border-width);
@@ -254,13 +260,15 @@ a[role=button] {
   display: inline-block;
   font-family: inherit;
   font-size: var(--pg-font-size);
-  height: calc(2 * var(--pg-btn-v-padding) + var(--pg-font-size) * var(--pg-line-height) + var(--pg-border-width));
+  height: calc(2 * 0.375rem + var(--pg-font-size) * var(--pg-line-height) + var(--pg-border-width));
   line-height: var(--pg-line-height);
-  padding-block: var(--pg-btn-v-padding);
-  padding-inline: var(--pg-btn-h-padding);
+  padding-block: 0.375rem;
+  padding-inline: 0.75rem;
   text-align: center;
   text-decoration: none;
   user-select: none;
+  width: 100%;
+
   &:active {
     filter: brightness(90%);
   }
@@ -275,6 +283,7 @@ a[role=button] {
   background-color: rgb(var(--pg-primary));
   border-color: rgb(var(--pg-primary));
   color: rgb(var(--pg-primary-inverse));
+
   &:not(.pg-outline):hover {
     background-color: rgb(var(--pg-primary-hover));
     border-color: rgb(var(--pg-primary-hover));
@@ -289,6 +298,7 @@ a[role=button].pg-secondary {
   background-color: rgb(var(--pg-secondary));
   border-color: rgb(var(--pg-secondary));
   color: rgb(var(--pg-secondary-inverse));
+
   &:not(.pg-outline):hover {
     background-color: rgb(var(--pg-secondary-hover));
     border-color: rgb(var(--pg-secondary-hover));
@@ -304,6 +314,7 @@ a[role=button].pg-contrast {
   background-color: rgb(var(--pg-contrast));
   border-color: rgb(var(--pg-contrast));
   color: rgb(var(--pg-contrast-inverse));
+
   &:not(.pg-outline):hover {
     background-color: rgb(var(--pg-contrast-hover));
     border-color: rgb(var(--pg-contrast-hover));
@@ -319,6 +330,7 @@ a[role=button].pg-danger {
   background-color: rgb(var(--pg-danger));
   border-color: rgb(var(--pg-danger));
   color: rgb(var(--pg-danger-inverse));
+
   &:not(.pg-outline):hover {
     background-color: rgb(var(--pg-danger-hover));
     border-color: rgb(var(--pg-danger-hover));
@@ -334,6 +346,7 @@ a[role=button].pg-success {
   background-color: rgb(var(--pg-success));
   border-color: rgb(var(--pg-success));
   color: rgb(var(--pg-success-inverse));
+
   &:not(.pg-outline):hover {
     background-color: rgb(var(--pg-success-hover));
     border-color: rgb(var(--pg-success-hover));
@@ -349,6 +362,7 @@ a[role=button].pg-info {
   background-color: rgb(var(--pg-info));
   border-color: rgb(var(--pg-info));
   color: rgb(var(--pg-info-inverse));
+
   &:not(.pg-outline):hover {
     background-color: rgb(var(--pg-info-hover));
     border-color: rgb(var(--pg-info-hover));
@@ -364,6 +378,7 @@ a[role=button].pg-warning {
   background-color: rgb(var(--pg-warning));
   border-color: rgb(var(--pg-warning));
   color: rgb(var(--pg-warning-inverse));
+
   &:not(.pg-outline):hover {
     background-color: rgb(var(--pg-warning-hover));
     border-color: rgb(var(--pg-warning-hover));

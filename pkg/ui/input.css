@@ -1,0 +1,108 @@
+input:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=radio], [type=range], [type=reset], [type=submit]) {
+  background-color: rgb(var(--pg-muted));
+  border-color: rgb(var(--pg-muted-text));
+  border-radius: var(--pg-border-radius);
+  border-style: solid;
+  border-width: var(--pg-border-width);
+  color: rgb(var(--pg-main-text));
+  display: block;
+  font-family: inherit;
+  font-size: var(--pg-font-size);
+  height: calc(2 * 0.325rem + var(--pg-font-size) * var(--pg-line-height) + var(--pg-border-width));
+  line-height: var(--pg-line-height);
+  margin-block: 0.5rem;
+  padding: 0.325rem 0.75rem;
+  width: 100%;
+
+  &:focus {
+    background-color: rgb(var(--pg-main-bg));
+    border-color: rgb(var(--pg-primary));
+    outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
+    outline-offset: calc(-.5 * var(--pg-outline-width));
+  }
+
+  &::placeholder {
+    color: rgb(var(--pg-muted-text));
+  }
+
+  &::-moz-color-swatch,
+  &::-webkit-color-swatch {
+    height: 0.75rem;
+    padding: 0;
+  }
+
+  & + small:not(:empty) {
+    margin-top: 0.25rem;
+  }
+
+  &[aria-invalid=true] {
+    border-color: rgb(var(--pg-danger));
+    outline-color: rgb(var(--pg-danger));
+  }
+
+  &[aria-invalid=true] + small {
+    color: rgb(var(--pg-danger-text));
+  }
+
+  &[aria-invalid=false] {
+    border-color: rgb(var(--pg-success));
+    outline-color: rgb(var(--pg-success));
+  }
+
+  &[aria-invalid=false] + small {
+    color: rgb(var(--pg-success-text));
+  }
+}
+
+label:is(.pg-label-top, .pg-label-left, .pg-label-responsive) {
+  color: rgb(var(--pg-muted-text));
+  display: grid;
+  margin-block: 0.5rem;
+  width: 100%;
+
+  & input:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=radio], [type=range], [type=reset], [type=submit]) {
+    margin-block: 0;
+  }
+}
+
+label.pg-label-left {
+  align-items: center;
+  grid-column-gap: 0.5rem;
+  grid-template-columns: auto 1fr;
+
+  & small {
+    grid-column: 2;
+  }
+}
+
+label.pg-label-responsive {
+  position: relative;
+
+  & span {
+    position: absolute;
+    top: 0.325rem;
+    left: 0.75rem;
+    transition:
+      font-size var(--pg-transition),
+      padding var(--pg-transition),
+      transform var(--pg-transition);
+    user-select: none;
+  }
+
+  &:has(input:focus) span,
+  &:has(input:not(:placeholder-shown)) span {
+    background-image: linear-gradient(to bottom, rgb(var(--pg-main-bg)) 50%, rgb(var(--pg-muted)) 50%);
+    font-size: 0.75rem;
+    padding-inline: .325rem;
+    transform: translate(-0.325rem, -0.75rem);
+  }
+
+  &:has(input:focus) span {
+    background-color: rgb(var(--pg-main-bg));
+    background-image: none;
+  }
+
+  & input::placeholder {
+    opacity: 0;
+  }
+}

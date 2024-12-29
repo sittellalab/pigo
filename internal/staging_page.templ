@@ -12,60 +12,26 @@ templ Stage() {
 			@ui.DetectTheme()
 		</head>
 		<body>
-			@ui.ThemeToggle(ui.ThemeToggleProps{})
+			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "50px"})
 			<br/>
-			<button>Primary</button>
-			<button class="pg-secondary">Secondary</button>
-			<button class="pg-contrast">Contrast</button>
-			<button class="pg-danger">Danger</button>
-			<button class="pg-success">Success</button>
-			<button class="pg-info">Info</button>
-			<button class="pg-warning">Warning</button>
-			<button class="pg-outline">Primary</button>
-			<button class="pg-secondary pg-outline">Secondary</button>
-			<button class="pg-contrast pg-outline">Contrast</button>
-			<button class="pg-danger pg-outline">Danger</button>
-			<button class="pg-success pg-outline">Success</button>
-			<button class="pg-info pg-outline">Info</button>
-			<button class="pg-warning pg-outline">Warning</button>
-			<br/>
-			<input type="button" class="pg-rounded" value="Primary"/>
-			<input type="button" class="pg-secondary pg-rounded" value="Secondary"/>
-			<input type="button" class="pg-contrast pg-rounded" value="Contrast"/>
-			<input type="button" class="pg-danger pg-rounded" value="Danger"/>
-			<input type="button" class="pg-success pg-rounded" value="Success"/>
-			<input type="button" class="pg-info pg-rounded" value="Info"/>
-			<input type="button" class="pg-warning pg-rounded" value="Warning"/>
-			<input type="button" class="pg-outline pg-rounded" value="Primary"/>
-			<input type="button" class="pg-secondary pg-outline pg-rounded" value="Secondary"/>
-			<input type="button" class="pg-contrast pg-outline pg-rounded" value="Contrast"/>
-			<input type="button" class="pg-danger pg-outline pg-rounded" value="Danger"/>
-			<input type="button" class="pg-success pg-outline pg-rounded" value="Success"/>
-			<input type="button" class="pg-info pg-outline pg-rounded" value="Info"/>
-			<input type="button" class="pg-warning pg-outline pg-rounded" value="Warning"/>
-			<br/>
-			<a role="button" class="pg-pill">Primary</a>
-			<a role="button" class="pg-secondary pg-pill">Secondary</a>
-			<a role="button" class="pg-contrast pg-pill">Contrast</a>
-			<a role="button" class="pg-danger pg-pill">Danger</a>
-			<a role="button" class="pg-success pg-pill">Success</a>
-			<a role="button" class="pg-info pg-pill">Info</a>
-			<a role="button" class="pg-warning pg-pill">Warning</a>
-			<a role="button" class="pg-outline pg-pill">Primary</a>
-			<a role="button" class="pg-secondary pg-outline pg-pill">Secondary</a>
-			<a role="button" class="pg-contrast pg-outline pg-pill">Contrast</a>
-			<a role="button" class="pg-danger pg-outline pg-pill">Danger</a>
-			<a role="button" class="pg-success pg-outline pg-pill">Success</a>
-			<a role="button" class="pg-info pg-outline pg-pill">Info</a>
-			<a role="button" class="pg-warning pg-outline pg-pill">Warning</a>
-			<br/>
-			<a href="#" class="">Primary</a>
-			<a href="#" class="pg-secondary">Secondary</a>
-			<a href="#" class="pg-contrast">Contrast</a>
-			<a href="#" class="pg-danger">Danger</a>
-			<a href="#" class="pg-success">Success</a>
-			<a href="#" class="pg-info">Info</a>
-			<a href="#" class="pg-warning">Warning</a>
+			@ui.Input(ui.InputProps{
+				Label:        "text",
+				LabelElement: ui.LabelResponsive,
+				HelperText:   "this is a text input",
+				Style:        ui.PillInput,
+				Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"}},
+			)
+			@ui.Input(ui.InputProps{Type: ui.Color, Placeholder: "color", Label: "color", LabelElement: ui.LabelResponsive})
+			@ui.Input(ui.InputProps{Type: ui.Date, Placeholder: "date", Label: "date", LabelElement: ui.LabelLeft})
+			@ui.Input(ui.InputProps{Type: ui.DatetimeLocal, Placeholder: "datetime-local", Label: "datetime-local", LabelElement: ui.LabelResponsive})
+			@ui.Input(ui.InputProps{Type: ui.Email, Placeholder: "email", Label: "email", LabelElement: ui.LabelTop})
+			@ui.Input(ui.InputProps{Type: ui.Month, Placeholder: "month"})
+			@ui.Input(ui.InputProps{Type: ui.Number, Placeholder: "number"})
+			@ui.Input(ui.InputProps{Type: ui.Password, Placeholder: "password", Style: ui.RoundedInput})
+			@ui.Input(ui.InputProps{Type: ui.Tel, Placeholder: "tel", Style: ui.PillInput})
+			@ui.Input(ui.InputProps{Type: ui.Time, Placeholder: "time"})
+			@ui.Input(ui.InputProps{Type: ui.Url, Placeholder: "url"})
+			@ui.Input(ui.InputProps{Type: ui.Week, Placeholder: "week"})
 		</body>
 	</html>
 }
