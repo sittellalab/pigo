@@ -36,8 +36,11 @@ input:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=rad
   }
 
   &[aria-invalid=true] {
+    background-image: var(--pg-icon-invalid);
+    background-position: center right 0.325rem;
     border-color: rgb(var(--pg-danger));
     outline-color: rgb(var(--pg-danger));
+    padding-right: calc(2 * 0.325rem + 24px);
   }
 
   &[aria-invalid=true] + small {
@@ -45,8 +48,11 @@ input:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=rad
   }
 
   &[aria-invalid=false] {
+    background-image: var(--pg-icon-valid);
+    background-position: center right 0.325rem;
     border-color: rgb(var(--pg-success));
     outline-color: rgb(var(--pg-success));
+    padding-right: calc(2 * 0.325rem + 24px);
   }
 
   &[aria-invalid=false] + small {

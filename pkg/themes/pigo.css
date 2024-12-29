@@ -48,6 +48,8 @@
   --pg-warning-text: 135 100 0;
   --pg-warning-text-hover: 105 77 0;
   --pg-warning-inverse: 0 0 0;
+  --pg-icon-valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(57, 135, 18)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  --pg-icon-invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(197, 47, 33)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
   --lightningcss-light: initial;
   --lightningcss-dark: ;
   color-scheme: light;
@@ -95,6 +97,8 @@
     --pg-warning-text: 199 148 0;
     --pg-warning-text-hover: 232 174 1;
     --pg-warning-inverse: 0 0 0;
+    --pg-icon-valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(57, 135, 18)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    --pg-icon-invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(197, 47, 33)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
     --lightningcss-light: ;
     --lightningcss-dark: initial;
     color-scheme: dark;
@@ -142,6 +146,8 @@
   --pg-warning-text: 199 148 0;
   --pg-warning-text-hover: 232 174 1;
   --pg-warning-inverse: 0 0 0;
+  --pg-icon-valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(57, 135, 18)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  --pg-icon-invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(197, 47, 33)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
   --lightningcss-light: ;
   --lightningcss-dark: initial;
   color-scheme: dark;
@@ -992,8 +998,11 @@ input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"
 }
 
 input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="true"] {
+  background-image: var(--pg-icon-invalid);
   border-color: rgb(var(--pg-danger));
   outline-color: rgb(var(--pg-danger));
+  background-position: right .325rem center;
+  padding-right: calc(.65rem + 24px);
 }
 
 input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="true"] + small {
@@ -1001,8 +1010,11 @@ input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"
 }
 
 input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="false"] {
+  background-image: var(--pg-icon-valid);
   border-color: rgb(var(--pg-success));
   outline-color: rgb(var(--pg-success));
+  background-position: right .325rem center;
+  padding-right: calc(.65rem + 24px);
 }
 
 input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="false"] + small {
