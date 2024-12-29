@@ -591,7 +591,7 @@ input[type="reset"].bg-warning:not(.pg-outline):hover {
   background-color: rgb(var(--pg-outline-bg) / .1) !important;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"].pg {
   -ms-appearance: none;
   appearance: none;
   border-color: rgb(var(--pg-muted-text));
@@ -603,7 +603,7 @@ input[type="checkbox"] {
   height: 1.25rem;
 }
 
-input[type="checkbox"]:checked {
+input[type="checkbox"].pg:checked {
   background-color: rgb(var(--pg-primary));
   background-image: var(--pg-icon-checkbox);
   border-color: rgb(var(--pg-primary));
@@ -611,7 +611,7 @@ input[type="checkbox"]:checked {
   background-size: 1rem;
 }
 
-input[type="checkbox"]:indeterminate {
+input[type="checkbox"].pg:indeterminate {
   background-color: rgb(var(--pg-primary));
   background-image: var(--pg-icon-minus);
   border-color: rgb(var(--pg-primary));
@@ -619,25 +619,25 @@ input[type="checkbox"]:indeterminate {
   background-size: 1rem;
 }
 
-input[type="checkbox"][aria-invalid="true"] {
+input[type="checkbox"].pg[aria-invalid="true"] {
   border-color: rgb(var(--pg-danger));
   border-width: calc(2 * var(--pg-border-width));
 }
 
-input[type="checkbox"][aria-invalid="true"]:checked {
+input[type="checkbox"].pg[aria-invalid="true"]:checked {
   background-color: rgb(var(--pg-danger));
 }
 
-input[type="checkbox"][aria-invalid="false"] {
+input[type="checkbox"].pg[aria-invalid="false"] {
   border-color: rgb(var(--pg-success));
   border-width: calc(2 * var(--pg-border-width));
 }
 
-input[type="checkbox"][aria-invalid="false"]:checked {
+input[type="checkbox"].pg[aria-invalid="false"]:checked {
   background-color: rgb(var(--pg-success));
 }
 
-label:has( > input[type="checkbox"]) {
+label:has( > input[type="checkbox"].pg) {
   font-family: inherit;
   line-height: inherit;
   -webkit-user-select: none;
@@ -649,7 +649,7 @@ label:has( > input[type="checkbox"]) {
   display: inline-flex;
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])) {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])) {
   background-color: rgb(var(--pg-muted));
   border-color: rgb(var(--pg-muted-text));
   border-radius: var(--pg-border-radius);
@@ -667,40 +667,44 @@ input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"
   display: block;
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])):focus {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])):focus {
   background-color: rgb(var(--pg-main-bg));
   border-color: rgb(var(--pg-primary));
   outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
   outline-offset: calc(-.5 * var(--pg-outline-width));
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::-ms-input-placeholder {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::-ms-input-placeholder {
   color: rgb(var(--pg-muted-text));
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::placeholder {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::placeholder {
   color: rgb(var(--pg-muted-text));
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::-moz-color-swatch {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::-moz-color-swatch {
   height: .75rem;
   padding: 0;
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::-webkit-color-swatch {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::-webkit-color-swatch {
   height: .75rem;
   padding: 0;
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])):has( + small:not(:empty)) {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])):has( + small:not(:empty)) {
   margin-bottom: 0;
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])) + small:not(:empty) {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])) + small:not(:empty) {
   margin-top: .25rem;
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="true"] {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])) + small:not(:empty):not(label small) {
+  margin-bottom: .5rem;
+}
+
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="true"] {
   background-image: var(--pg-icon-invalid);
   border-color: rgb(var(--pg-danger));
   outline-color: rgb(var(--pg-danger));
@@ -708,11 +712,11 @@ input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"
   padding-right: calc(.65rem + 24px);
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="true"] + small {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="true"] + small {
   color: rgb(var(--pg-danger-text));
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="false"] {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="false"] {
   background-image: var(--pg-icon-valid);
   border-color: rgb(var(--pg-success));
   outline-color: rgb(var(--pg-success));
@@ -720,7 +724,7 @@ input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"
   padding-right: calc(.65rem + 24px);
 }
 
-input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="false"] + small {
+input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))[aria-invalid="false"] + small {
   color: rgb(var(--pg-success-text));
 }
 
@@ -798,7 +802,7 @@ label.pg-label-responsive input::placeholder {
   opacity: 0;
 }
 
-select {
+select.pg {
   -ms-appearance: none;
   appearance: none;
   background-color: rgb(var(--pg-muted));
@@ -817,43 +821,43 @@ select {
   display: block;
 }
 
-select:not([multiple]) {
+select.pg:not([multiple]) {
   background-image: var(--pg-icon-chevron);
   height: calc(2 * .325rem + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
   background-position: right .375rem center;
 }
 
-select:focus {
+select.pg:focus {
   background-color: rgb(var(--pg-main-bg));
   border-color: rgb(var(--pg-primary));
   outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
   outline-offset: calc(-.5 * var(--pg-outline-width));
 }
 
-select:has( + small:not(:empty)) {
+select.pg:has( + small:not(:empty)) {
   margin-bottom: 0;
 }
 
-select + small:not(:empty) {
+select.pg + small:not(:empty) {
   margin-top: .25rem;
   margin-bottom: .5rem;
 }
 
-select[aria-invalid="true"] {
+select.pg[aria-invalid="true"] {
   border-color: rgb(var(--pg-danger));
   outline-color: rgb(var(--pg-danger));
 }
 
-select[aria-invalid="true"] + small {
+select.pg[aria-invalid="true"] + small {
   color: rgb(var(--pg-danger-text));
 }
 
-select[aria-invalid="false"] {
+select.pg[aria-invalid="false"] {
   border-color: rgb(var(--pg-success));
   outline-color: rgb(var(--pg-success));
 }
 
-select[aria-invalid="false"] + small {
+select.pg[aria-invalid="false"] + small {
   color: rgb(var(--pg-success-text));
 }
 
@@ -1219,7 +1223,7 @@ select[aria-invalid="false"] + small {
   }
 }
 
-textarea {
+textarea.pg {
   background-color: rgb(var(--pg-muted));
   border-color: rgb(var(--pg-muted-text));
   border-radius: var(--pg-border-radius);
@@ -1236,34 +1240,34 @@ textarea {
   display: block;
 }
 
-textarea:focus {
+textarea.pg:focus {
   background-color: rgb(var(--pg-main-bg));
   border-color: rgb(var(--pg-primary));
   outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
   outline-offset: calc(-.5 * var(--pg-outline-width));
 }
 
-textarea::-ms-input-placeholder {
+textarea.pg::-ms-input-placeholder {
   color: rgb(var(--pg-muted-text));
 }
 
-textarea::placeholder {
+textarea.pg::placeholder {
   color: rgb(var(--pg-muted-text));
 }
 
-textarea:has( + small:not(:empty)) {
+textarea.pg:has( + small:not(:empty)) {
   margin-bottom: 0;
 }
 
-textarea + small:not(:empty) {
+textarea.pg + small:not(:empty) {
   margin-top: .25rem;
 }
 
-textarea + small:not(:empty):not(label small) {
+textarea.pg + small:not(:empty):not(label small) {
   margin-bottom: .5rem;
 }
 
-textarea[aria-invalid="true"] {
+textarea.pg[aria-invalid="true"] {
   background-image: var(--pg-icon-invalid);
   border-color: rgb(var(--pg-danger));
   outline-color: rgb(var(--pg-danger));
@@ -1271,11 +1275,11 @@ textarea[aria-invalid="true"] {
   padding-right: calc(.65rem + 24px);
 }
 
-textarea[aria-invalid="true"] + small {
+textarea.pg[aria-invalid="true"] + small {
   color: rgb(var(--pg-danger-text));
 }
 
-textarea[aria-invalid="false"] {
+textarea.pg[aria-invalid="false"] {
   background-image: var(--pg-icon-valid);
   border-color: rgb(var(--pg-success));
   outline-color: rgb(var(--pg-success));
@@ -1283,7 +1287,7 @@ textarea[aria-invalid="false"] {
   padding-right: calc(.65rem + 24px);
 }
 
-textarea[aria-invalid="false"] + small {
+textarea.pg[aria-invalid="false"] + small {
   color: rgb(var(--pg-success-text));
 }
 

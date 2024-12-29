@@ -38,9 +38,7 @@ templ Select(props SelectProps) {
 		if props.ID != "" {
 			id={ props.ID }
 		}
-		if props.Class != "" || props.Style != SquaredInput {
-			class={ string(lib.Coalesce(string(props.Style), string(SquaredInput))), props.Class }
-		}
+		class={ "pg", string(lib.Coalesce(string(props.Style), string(SquaredInput))), props.Class }
 		if props.Name != "" {
 			name={ props.Name }
 		}

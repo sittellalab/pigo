@@ -1,4 +1,4 @@
-input[type=checkbox] {
+input[type=checkbox].pg {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -45,7 +45,7 @@ input[type=checkbox] {
   }
 }
 
-label:has(> input[type=checkbox]) {
+label:has(> input[type=checkbox].pg) {
   align-items: center;
   display: inline-flex;
   font-family: inherit;

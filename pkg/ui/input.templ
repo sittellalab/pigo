@@ -87,9 +87,7 @@ templ input(props InputProps) {
 		if props.Name != "" {
 			name={ props.Name }
 		}
-		if props.Style != SquaredInput || props.Class != "" {
-			class={ lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }
-		}
+		class={ "pg", lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }
 		if props.Validator.Callback != "" {
 			oninput={ inputValidator(
 				templ.JSExpression("this"),

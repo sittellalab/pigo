@@ -1,4 +1,4 @@
-input:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=radio], [type=range], [type=reset], [type=submit]) {
+input.pg:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=radio], [type=range], [type=reset], [type=submit]) {
   background-color: rgb(var(--pg-muted));
   border-color: rgb(var(--pg-muted-text));
   border-radius: var(--pg-border-radius);
@@ -37,6 +37,10 @@ input:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=rad
 
   & + small:not(:empty) {
     margin-top: 0.25rem;
+  }
+
+  & + small:not(:empty):not(label small) {
+    margin-bottom: 0.5rem;
   }
 
   &[aria-invalid=true] {

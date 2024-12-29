@@ -60,11 +60,10 @@ templ textarea(props TextareaProps) {
 		if props.Name != "" {
 			name={ props.Name }
 		}
-		if props.Resize != ResizeVertical || props.Style != SquaredTextarea || props.Class != "" {
-			class={ lib.Coalesce(string(props.Resize), string(ResizeVertical)),
-				lib.Coalesce(string(props.Style), string(SquaredTextarea)),
-				props.Class }
-		}
+		class={ "pg",
+			lib.Coalesce(string(props.Resize), string(ResizeVertical)),
+			lib.Coalesce(string(props.Style), string(SquaredTextarea)),
+			props.Class }
 		if props.Rows > 0 {
 			rows={ strconv.Itoa(props.Rows) }
 		}

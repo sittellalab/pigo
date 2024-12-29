@@ -1,4 +1,4 @@
-textarea {
+textarea.pg {
   background-color: rgb(var(--pg-muted));
   border-color: rgb(var(--pg-muted-text));
   border-radius: var(--pg-border-radius);

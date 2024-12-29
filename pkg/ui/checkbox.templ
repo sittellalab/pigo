@@ -41,9 +41,7 @@ templ Checkbox(props CheckboxProps) {
 			if props.Value != "" {
 				value={ props.Value }
 			}
-			if props.Class != "" || props.Style != SquaredInput {
-				class={ lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }
-			}
+			class={ "pg", lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }
 			if props.Valid > 0 {
 				aria-invalid={ strconv.FormatBool(props.Valid == CheckboxInvalid) }
 				onclick="this.removeAttribute('aria-invalid');"
