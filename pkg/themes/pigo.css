@@ -993,6 +993,10 @@ input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"
   padding: 0;
 }
 
+input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])):has( + small:not(:empty)) {
+  margin-bottom: 0;
+}
+
 input:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])) + small:not(:empty) {
   margin-top: .25rem;
 }
@@ -1093,4 +1097,165 @@ label.pg-label-responsive input::-ms-input-placeholder {
 
 label.pg-label-responsive input::placeholder {
   opacity: 0;
+}
+
+textarea {
+  background-color: rgb(var(--pg-muted));
+  border-color: rgb(var(--pg-muted-text));
+  border-radius: var(--pg-border-radius);
+  border-style: solid;
+  border-width: var(--pg-border-width);
+  color: rgb(var(--pg-main-text));
+  font-family: inherit;
+  font-size: var(--pg-font-size);
+  line-height: var(--pg-line-height);
+  width: 100%;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding: .325rem .75rem;
+  display: block;
+}
+
+textarea:focus {
+  background-color: rgb(var(--pg-main-bg));
+  border-color: rgb(var(--pg-primary));
+  outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
+  outline-offset: calc(-.5 * var(--pg-outline-width));
+}
+
+textarea::-ms-input-placeholder {
+  color: rgb(var(--pg-muted-text));
+}
+
+textarea::placeholder {
+  color: rgb(var(--pg-muted-text));
+}
+
+textarea:has( + small:not(:empty)) {
+  margin-bottom: 0;
+}
+
+textarea + small:not(:empty) {
+  margin-top: .25rem;
+}
+
+textarea + small:not(:empty):not(label small) {
+  margin-bottom: .5rem;
+}
+
+textarea[aria-invalid="true"] {
+  background-image: var(--pg-icon-invalid);
+  border-color: rgb(var(--pg-danger));
+  outline-color: rgb(var(--pg-danger));
+  background-position: right .325rem top .325rem;
+  padding-right: calc(.65rem + 24px);
+}
+
+textarea[aria-invalid="true"] + small {
+  color: rgb(var(--pg-danger-text));
+}
+
+textarea[aria-invalid="false"] {
+  background-image: var(--pg-icon-valid);
+  border-color: rgb(var(--pg-success));
+  outline-color: rgb(var(--pg-success));
+  background-position: right .325rem top .325rem;
+  padding-right: calc(.65rem + 24px);
+}
+
+textarea[aria-invalid="false"] + small {
+  color: rgb(var(--pg-success-text));
+}
+
+label:is(.pg-label-top, .pg-label-left, .pg-label-responsive) {
+  color: rgb(var(--pg-muted-text));
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  display: grid;
+}
+
+label:is(.pg-label-top, .pg-label-left, .pg-label-responsive) textarea {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+label.pg-label-left {
+  grid-column-gap: .5rem;
+  grid-template-columns: auto 1fr;
+}
+
+label.pg-label-left span {
+  align-self: start;
+}
+
+label.pg-label-left small {
+  grid-column: 2;
+}
+
+label.pg-label-responsive {
+  position: relative;
+}
+
+label.pg-label-responsive span {
+  transition: font-size var(--pg-transition), padding var(--pg-transition), transform var(--pg-transition);
+  position: absolute;
+  top: .325rem;
+  left: .75rem;
+}
+
+label.pg-label-responsive:has(textarea:focus) span {
+  background-image: linear-gradient(to bottom, rgb(var(--pg-main-bg)) 50%, rgb(var(--pg-muted)) 50%);
+  padding-left: .325rem;
+  padding-right: .325rem;
+  font-size: .75rem;
+  transform: translate(-.325rem, -.75rem);
+}
+
+label.pg-label-responsive:has(textarea:not(:-ms-placeholder-shown)) span {
+  background-image: linear-gradient(to bottom, rgb(var(--pg-main-bg)) 50%, rgb(var(--pg-muted)) 50%);
+  padding-left: .325rem;
+  padding-right: .325rem;
+  font-size: .75rem;
+  transform: translate(-.325rem, -.75rem);
+}
+
+label.pg-label-responsive:has(textarea:not(:placeholder-shown)) span {
+  background-image: linear-gradient(to bottom, rgb(var(--pg-main-bg)) 50%, rgb(var(--pg-muted)) 50%);
+  padding-left: .325rem;
+  padding-right: .325rem;
+  font-size: .75rem;
+  transform: translate(-.325rem, -.75rem);
+}
+
+label.pg-label-responsive:has(textarea:focus) span {
+  background-color: rgb(var(--pg-main-bg));
+  background-image: none;
+}
+
+label.pg-label-responsive textarea::-ms-input-placeholder {
+  opacity: 0;
+}
+
+label.pg-label-responsive textarea::placeholder {
+  opacity: 0;
+}
+
+textarea:not(:is(.pg-resize-all, .pg-resize-horizontal, .pg-resize-none)) {
+  resize: vertical;
+}
+
+textarea.pg-resize-all {
+  resize: both;
+}
+
+textarea.pg-resize-horizontal {
+  resize: horizontal;
+}
+
+textarea.pg-resize-none {
+  resize: none;
 }

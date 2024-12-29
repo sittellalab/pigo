@@ -51,57 +51,31 @@ func Stage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{
-			Label:        "text",
+		templ_7745c5c3_Err = ui.Textarea(ui.TextareaProps{
+			Rows:         5,
+			Label:        "textarea",
+			LabelElement: ui.LabelLeft,
+			Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"},
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Textarea(ui.TextareaProps{
+			Rows:         5,
+			Label:        "textarea",
+			LabelElement: ui.LabelTop,
+			Style:        ui.RoundedTextarea,
+			Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"},
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = ui.Textarea(ui.TextareaProps{
+			Rows:         5,
 			LabelElement: ui.LabelResponsive,
-			HelperText:   "this is a text input",
-			Style:        ui.PillInput,
-			Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"}},
-		).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Color, Placeholder: "color", Label: "color", LabelElement: ui.LabelResponsive}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Date, Placeholder: "date", Label: "date", LabelElement: ui.LabelLeft}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.DatetimeLocal, Placeholder: "datetime-local", Label: "datetime-local", LabelElement: ui.LabelResponsive}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Email, Placeholder: "email", Label: "email", LabelElement: ui.LabelTop}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Month, Placeholder: "month"}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Number, Placeholder: "number"}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Password, Placeholder: "password", Style: ui.RoundedInput}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Tel, Placeholder: "tel", Style: ui.PillInput}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Time, Placeholder: "time"}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Url, Placeholder: "url"}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Type: ui.Week, Placeholder: "week"}).Render(ctx, templ_7745c5c3_Buffer)
+			Label:        "textarea",
+			Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"},
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

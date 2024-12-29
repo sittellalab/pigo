@@ -1,0 +1,94 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/lib"
+import "strconv"
+
+type TextareaResize string
+
+const (
+	ResizeVertical   TextareaResize = ""
+	ResizeAll        TextareaResize = "pg-resize-all"
+	ResizeHorizontal TextareaResize = "pg-resize-horizontal"
+	ResizeNone       TextareaResize = "pg-resize-none"
+)
+
+type TextareaStyle string
+
+const (
+	SquaredTextarea TextareaStyle = ""
+	RoundedTextarea TextareaStyle = "pg-rounded"
+)
+
+type TextareaProps struct {
+	Class            string         // Adds optional additional classes to the textarea
+	Disabled         bool           // Disables the textarea if true
+	HelperText       string         // Adds optional helper text underneath the textarea field
+	ID               string         // A unique ID to add to the textarea
+	Label            string         // Adds a label to the textarea as an aria-label attribute
+	LabelElement     InputLabel     // Adds an optional a label element if specified
+	Name             string         // Adds the textarea name
+	Placeholder      string         // Adds placeholder text to the textarea
+	Required         bool           // Ensures the textarea is required if true
+	Rows             int            // An integer representing the height of the textarea
+	Resize           TextareaResize // Applies optional resize styling to textarea, defaults to vertical
+	Style            TextareaStyle  // Applies optional shape styling to the textarea, defaults to square
+	Validator        InputValidator // Adds an optional validation callback function
+	Value            string         // An optional value to default the textarea to
+	templ.Attributes                // Adds optional additional attributes to add to the textarea
+}
+
+// Textarea will render a textarea.
+//
+// Note: While the Validator field requires JavaScript to function, the Textarea component itself does not require JavaScript.
+// If a user has JavaScript disabled, the Validator field of the Textarea will fail gracefully.
+templ Textarea(props TextareaProps) {
+	if props.LabelElement != LabelNone {
+		<label class={ string(props.LabelElement) }>
+			<span>{ props.Label }</span>
+			@textarea(props)
+		</label>
+	} else {
+		@textarea(props)
+	}
+}
+
+templ textarea(props TextareaProps) {
+	<textarea
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		if props.Resize != ResizeVertical || props.Style != SquaredTextarea || props.Class != "" {
+			class={ lib.Coalesce(string(props.Resize), string(ResizeVertical)),
+				lib.Coalesce(string(props.Style), string(SquaredTextarea)),
+				props.Class }
+		}
+		if props.Rows > 0 {
+			rows={ strconv.Itoa(props.Rows) }
+		}
+		if props.Validator.Callback != "" {
+			oninput={ inputValidator(
+				templ.JSExpression("this"),
+				props.Validator.Callback,
+				props.HelperText,
+				props.Validator.ErrorMessage,
+				props.Validator.SuccessMessage,
+			) }
+		}
+		if props.Label != "" {
+			aria-label={ props.Label }
+		}
+		placeholder={ props.Placeholder }
+		if props.Value != "" {
+			value={ props.Value }
+		}
+		disabled?={ props.Disabled }
+		required?={ props.Required }
+		{ props.Attributes... }
+	>
+		{ props.Value }
+	</textarea>
+	<small>{ props.HelperText }</small>
+}

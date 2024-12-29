@@ -14,24 +14,25 @@ templ Stage() {
 		<body>
 			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "50px"})
 			<br/>
-			@ui.Input(ui.InputProps{
-				Label:        "text",
+			@ui.Textarea(ui.TextareaProps{
+				Rows:         5,
+				Label:        "textarea",
+				LabelElement: ui.LabelLeft,
+				Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"},
+			})
+			@ui.Textarea(ui.TextareaProps{
+				Rows:         5,
+				Label:        "textarea",
+				LabelElement: ui.LabelTop,
+				Style:        ui.RoundedTextarea,
+				Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"},
+			})
+			@ui.Textarea(ui.TextareaProps{
+				Rows:         5,
 				LabelElement: ui.LabelResponsive,
-				HelperText:   "this is a text input",
-				Style:        ui.PillInput,
-				Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"}},
-			)
-			@ui.Input(ui.InputProps{Type: ui.Color, Placeholder: "color", Label: "color", LabelElement: ui.LabelResponsive})
-			@ui.Input(ui.InputProps{Type: ui.Date, Placeholder: "date", Label: "date", LabelElement: ui.LabelLeft})
-			@ui.Input(ui.InputProps{Type: ui.DatetimeLocal, Placeholder: "datetime-local", Label: "datetime-local", LabelElement: ui.LabelResponsive})
-			@ui.Input(ui.InputProps{Type: ui.Email, Placeholder: "email", Label: "email", LabelElement: ui.LabelTop})
-			@ui.Input(ui.InputProps{Type: ui.Month, Placeholder: "month"})
-			@ui.Input(ui.InputProps{Type: ui.Number, Placeholder: "number"})
-			@ui.Input(ui.InputProps{Type: ui.Password, Placeholder: "password", Style: ui.RoundedInput})
-			@ui.Input(ui.InputProps{Type: ui.Tel, Placeholder: "tel", Style: ui.PillInput})
-			@ui.Input(ui.InputProps{Type: ui.Time, Placeholder: "time"})
-			@ui.Input(ui.InputProps{Type: ui.Url, Placeholder: "url"})
-			@ui.Input(ui.InputProps{Type: ui.Week, Placeholder: "week"})
+				Label:        "textarea",
+				Validator:    ui.InputValidator{Callback: "(v)=>v.length>=5", ErrorMessage: "error", SuccessMessage: "success"},
+			})
 		</body>
 	</html>
 }

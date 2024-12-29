@@ -53,9 +53,10 @@ type InputProps struct {
 	ID               string         // A unique ID to add to the input
 	Label            string         // Adds a label to the input as an aria-label attribute
 	LabelElement     InputLabel     // Adds an optional a label element if specified
+	Name             string         // Adds the input name
 	Placeholder      string         // Adds placeholder text to text based elements
-	Style            InputStyle     // Applies optional shape styling to the input, defaults to square
 	Required         bool           // Ensures the input is required if true
+	Style            InputStyle     // Applies optional shape styling to the input, defaults to square
 	Type             InputType      // Defines the type of input, defaults to text if not given
 	Validator        InputValidator // Adds an optional validation callback function
 	Value            string         // An optional value to default the input to
@@ -82,6 +83,9 @@ templ input(props InputProps) {
 		type={ lib.Coalesce(string(props.Type), string(Text)) }
 		if props.ID != "" {
 			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
 		}
 		if props.Style != SquaredInput || props.Class != "" {
 			class={ lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }

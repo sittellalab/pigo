@@ -9,73 +9,47 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import "github.com/sittellalab/pigo/pkg/lib"
+import "strconv"
 
-type InputType string
-
-const (
-	Color         InputType = "color"
-	Date          InputType = "date"
-	DatetimeLocal InputType = "datetime-local"
-	Email         InputType = "email"
-	Month         InputType = "month"
-	Number        InputType = "number"
-	Password      InputType = "password"
-	Tel           InputType = "tel"
-	Text          InputType = "text"
-	Time          InputType = "time"
-	Url           InputType = "url"
-	Week          InputType = "week"
-)
-
-type InputLabel string
+type TextareaResize string
 
 const (
-	LabelNone       InputLabel = ""
-	LabelTop        InputLabel = "pg-label-top"
-	LabelLeft       InputLabel = "pg-label-left"
-	LabelResponsive InputLabel = "pg-label-responsive"
+	ResizeVertical   TextareaResize = ""
+	ResizeAll        TextareaResize = "pg-resize-all"
+	ResizeHorizontal TextareaResize = "pg-resize-horizontal"
+	ResizeNone       TextareaResize = "pg-resize-none"
 )
 
-type InputStyle string
+type TextareaStyle string
 
 const (
-	SquaredInput InputStyle = ""
-	RoundedInput InputStyle = "pg-rounded"
-	PillInput    InputStyle = "pg-pill"
+	SquaredTextarea TextareaStyle = ""
+	RoundedTextarea TextareaStyle = "pg-rounded"
 )
 
-// InputValidator adds a validation callback function with optional error and success messages to an input
-type InputValidator struct {
-	// The name of a JavaScript function with the signature `function(value: string): boolean`.
-	//
-	// E.g., if you defined a function named `validateDate`, pass "validateDate" as the value to Callback
-	Callback       templ.JSExpression
-	ErrorMessage   string // An optional error message to be shown when the input is not valid
-	SuccessMessage string // An optional success message to be shown when the input is valid
-}
-
-type InputProps struct {
-	Class            string         // Adds optional additional classes to the input field
-	Disabled         bool           // Disables the input if true
-	HelperText       string         // Adds optional helper text underneath the input field
-	ID               string         // A unique ID to add to the input
-	Label            string         // Adds a label to the input as an aria-label attribute
+type TextareaProps struct {
+	Class            string         // Adds optional additional classes to the textarea
+	Disabled         bool           // Disables the textarea if true
+	HelperText       string         // Adds optional helper text underneath the textarea field
+	ID               string         // A unique ID to add to the textarea
+	Label            string         // Adds a label to the textarea as an aria-label attribute
 	LabelElement     InputLabel     // Adds an optional a label element if specified
-	Name             string         // Adds the input name
-	Placeholder      string         // Adds placeholder text to text based elements
-	Required         bool           // Ensures the input is required if true
-	Style            InputStyle     // Applies optional shape styling to the input, defaults to square
-	Type             InputType      // Defines the type of input, defaults to text if not given
+	Name             string         // Adds the textarea name
+	Placeholder      string         // Adds placeholder text to the textarea
+	Required         bool           // Ensures the textarea is required if true
+	Rows             int            // An integer representing the height of the textarea
+	Resize           TextareaResize // Applies optional resize styling to textarea, defaults to vertical
+	Style            TextareaStyle  // Applies optional shape styling to the textarea, defaults to square
 	Validator        InputValidator // Adds an optional validation callback function
-	Value            string         // An optional value to default the input to
-	templ.Attributes                // Adds optional additional attributes to add to the input
+	Value            string         // An optional value to default the textarea to
+	templ.Attributes                // Adds optional additional attributes to add to the textarea
 }
 
-// Input will render an input of the specified type.
+// Textarea will render a textarea.
 //
-// Note: While the Validator field requires JavaScript to function, the Input component itself does not require JavaScript.
-// If a user has JavaScript disabled, the Validator field of the Input will fail gracefully.
-func Input(props InputProps) templ.Component {
+// Note: While the Validator field requires JavaScript to function, the Textarea component itself does not require JavaScript.
+// If a user has JavaScript disabled, the Validator field of the Textarea will fail gracefully.
+func Textarea(props TextareaProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -109,7 +83,7 @@ func Input(props InputProps) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var2).String())
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 1, Col: 0}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 1, Col: 0}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -122,7 +96,7 @@ func Input(props InputProps) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(props.Label)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 73, Col: 22}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 47, Col: 22}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -132,7 +106,7 @@ func Input(props InputProps) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = input(props).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = textarea(props).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -141,7 +115,7 @@ func Input(props InputProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = input(props).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = textarea(props).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -150,7 +124,7 @@ func Input(props InputProps) templ.Component {
 	})
 }
 
-func input(props InputProps) templ.Component {
+func textarea(props TextareaProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -171,7 +145,9 @@ func input(props InputProps) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var6 = []any{lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class}
+		var templ_7745c5c3_Var6 = []any{lib.Coalesce(string(props.Resize), string(ResizeVertical)),
+			lib.Coalesce(string(props.Style), string(SquaredTextarea)),
+			props.Class}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var6...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -186,20 +162,7 @@ func input(props InputProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<input type=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var7 string
-		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(lib.Coalesce(string(props.Type), string(Text)))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 83, Col: 55}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<textarea")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -208,12 +171,12 @@ func input(props InputProps) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var8 string
-			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
+			var templ_7745c5c3_Var7 string
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 85, Col: 16}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 58, Col: 16}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -227,10 +190,29 @@ func input(props InputProps) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var9 string
-			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(props.Name)
+			var templ_7745c5c3_Var8 string
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(props.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 88, Col: 20}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 61, Col: 20}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		if props.Resize != ResizeVertical || props.Style != SquaredTextarea || props.Class != "" {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" class=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var9 string
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var6).String())
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 1, Col: 0}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -241,15 +223,15 @@ func input(props InputProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		if props.Style != SquaredInput || props.Class != "" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" class=\"")
+		if props.Rows > 0 {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" rows=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
-			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var6).String())
+			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(props.Rows))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 1, Col: 0}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 69, Col: 34}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -289,7 +271,7 @@ func input(props InputProps) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(props.Label)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 103, Col: 27}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 81, Col: 27}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -307,7 +289,7 @@ func input(props InputProps) templ.Component {
 		var templ_7745c5c3_Var13 string
 		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(props.Placeholder)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 105, Col: 33}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 83, Col: 33}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {
@@ -325,7 +307,7 @@ func input(props InputProps) templ.Component {
 			var templ_7745c5c3_Var14 string
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(props.Value)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 107, Col: 22}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 85, Col: 22}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -352,16 +334,29 @@ func input(props InputProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("> <small>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var15 string
-		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(props.HelperText)
+		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(props.Value)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/input.templ`, Line: 113, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 91, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</textarea> <small>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var16 string
+		templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(props.HelperText)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/textarea.templ`, Line: 93, Col: 26}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -371,27 +366,6 @@ func input(props InputProps) templ.Component {
 		}
 		return templ_7745c5c3_Err
 	})
-}
-
-func inputValidator(thiss, callback templ.JSExpression, initial, error, success string) templ.ComponentScript {
-	return templ.ComponentScript{
-		Name: `__templ_inputValidator_3f56`,
-		Function: `function __templ_inputValidator_3f56(thiss, callback, initial, error, success){if (typeof callback !== "function") return console.error("The validation callback is not a function\nTriggered by:", t);
-
-	if (!thiss.value) {
-		thiss.nextElementSibling.textContent = initial;
-		thiss.removeAttribute("aria-invalid");
-	} else if (callback(thiss.value)) {
-		thiss.nextElementSibling.textContent = success;
-		thiss.setAttribute("aria-invalid", "false");
-	} else {
-		thiss.nextElementSibling.textContent = error;
-		thiss.setAttribute("aria-invalid", "true");
-	}
-}`,
-		Call:       templ.SafeScript(`__templ_inputValidator_3f56`, thiss, callback, initial, error, success),
-		CallInline: templ.SafeScriptInline(`__templ_inputValidator_3f56`, thiss, callback, initial, error, success),
-	}
 }
 
 var _ = templruntime.GeneratedTemplate
