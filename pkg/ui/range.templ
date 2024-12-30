@@ -1,0 +1,69 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/lib"
+
+type RangeType string
+
+const (
+	PrimaryRange RangeType = ""
+	DangerRange  RangeType = "pg-danger-range"
+	SuccessRange RangeType = "pg-success-range"
+	InfoRange    RangeType = "pg-info-range"
+	WarningRange RangeType = "pg-warning-range"
+)
+
+type RangeStyle string
+
+const (
+	SquaredRange RangeStyle = ""
+	RoundedRange RangeStyle = "pg-rounded"
+	PillRange    RangeStyle = "pg-pill"
+)
+
+type RangeProps struct {
+	Class            string     // Adds optional additional classes to the range
+	Disabled         bool       // Disables the range if true
+	ID               string     // A unique ID to add to the range
+	Label            string     // Adds a label to the range
+	Max              string     // Adds the maximum range
+	Min              string     // Adss the minimum range
+	Name             string     // Adds the range name
+	Step             string     // Adds the step size of the range
+	Style            RangeStyle // Applies optional shape styling to the range, defaults to square
+	Type             RangeType  // Changes the range styling to the given type, defaults to primary colors
+	Value            string     // Sets the range value
+	templ.Attributes            // Adds optional additional attributes to add to the range
+}
+
+templ Range(props RangeProps) {
+	<label>
+		{ props.Label }
+		<input
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			if props.Min != "" {
+				min={ props.Min }
+			}
+			if props.Max != "" {
+				max={ props.Max }
+			}
+			if props.Step != "" {
+				step={ props.Step }
+			}
+			type="range"
+			class={ "pg",
+				lib.Coalesce(string(props.Type), string(PrimaryRange)),
+				lib.Coalesce(string(props.Style), string(SquaredRange)),
+				props.Class }
+			disabled?={ props.Disabled }
+			{ props.Attributes... }
+		/>
+	</label>
+}

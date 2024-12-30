@@ -51,47 +51,23 @@ func Stage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Switch(ui.SwitchProps{Label: "switch", Type: ui.WarningSwitch}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Range(ui.RangeProps{Label: "range"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Switch(ui.SwitchProps{Label: "switch", Toggled: true, Disabled: true}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Range(ui.RangeProps{Label: "range", Type: ui.DangerRange, Disabled: true}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Switch(ui.SwitchProps{Label: "switch", Valid: ui.SwitchInvalid}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Range(ui.RangeProps{Label: "range", Type: ui.SuccessRange}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Switch(ui.SwitchProps{Label: "switch", Valid: ui.SwitchValid}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Range(ui.RangeProps{Label: "range", Type: ui.InfoRange, Style: ui.RoundedRange}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Switch(ui.SwitchProps{Style: ui.RoundedSwitch, Label: "switch", Valid: ui.SwitchInvalid}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Switch(ui.SwitchProps{Style: ui.PillSwitch, Toggled: true, Label: "switch", Valid: ui.SwitchValid}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Select(ui.SelectProps{Disabled: true, Placeholder: "select"}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{Disabled: true, Placeholder: "text"}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Checkbox(ui.CheckboxProps{Disabled: true}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Radio(ui.RadioProps{Disabled: true}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Textarea(ui.TextareaProps{Disabled: true, Placeholder: "textarea"}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Range(ui.RangeProps{Label: "range", Type: ui.WarningRange, Style: ui.PillRange}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

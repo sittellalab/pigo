@@ -1,0 +1,85 @@
+label:has(input[type=range].pg) {
+  align-items: center;
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.5rem;
+  user-select: none;
+}
+
+input[type=range].pg {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  cursor: pointer;
+  height: 1.25rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  &[disabled] {
+    cursor: initial;
+    filter: grayscale(50%);
+  }
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: rgb(var(--pg-secondary-text));
+    border-color: rgb(var(--pg-secondary-text));
+    border-radius: var(--pg-border-radius);
+    height: 1.25rem;
+    transition:
+      filter var(--pg-transition),
+      transform var(--pg-transition);
+    width: 1.25rem;
+  }
+
+  &:not([disabled]):hover::-moz-range-thumb {
+    filter: brightness(150%);
+  }
+
+  &:not([disabled]):active::-moz-range-thumb {
+    background-color: rgb(var(--pg-primary));
+    border-color: rgb(var(--pg-primary));
+    transform: scale(1.2);
+  }
+
+  &:not([disabled]).pg-danger-range:active::-moz-range-thumb {
+    background-color: rgb(var(--pg-danger));
+    border-color: rgb(var(--pg-danger));
+  }
+
+  &:not([disabled]).pg-success-range:active::-moz-range-thumb {
+    background-color: rgb(var(--pg-success));
+    border-color: rgb(var(--pg-success));
+  }
+
+  &:not([disabled]).pg-info-range:active::-moz-range-thumb {
+    background-color: rgb(var(--pg-info));
+    border-color: rgb(var(--pg-info));
+  }
+
+  &:not([disabled]).pg-warning-range:active::-moz-range-thumb {
+    background-color: rgb(var(--pg-warning));
+    border-color: rgb(var(--pg-warning));
+  }
+
+  &::-moz-range-track {
+    background-color: rgb(var(--pg-muted));
+    border-color: rgb(var(--pg-muted));
+    border-radius: var(--pg-border-radius);
+    height: 0.375rem;
+    transition:
+      background-color var(--pg-transition),
+      border-color var(--pg-transition);
+    width: 100%;
+  }
+
+  &:not([disabled]):hover::-moz-range-track,
+  &:not([disabled]):active::-moz-range-track {
+    background-color: rgb(var(--pg-muted-text) / .5);
+    border-color: rgb(var(--pg-muted-text) / .5);
+  }
+}

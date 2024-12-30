@@ -14,17 +14,11 @@ templ Stage() {
 		<body>
 			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "50px"})
 			<br/>
-			@ui.Switch(ui.SwitchProps{Label: "switch", Type: ui.WarningSwitch})
-			@ui.Switch(ui.SwitchProps{Label: "switch", Toggled: true, Disabled: true})
-			@ui.Switch(ui.SwitchProps{Label: "switch", Valid: ui.SwitchInvalid})
-			@ui.Switch(ui.SwitchProps{Label: "switch", Valid: ui.SwitchValid})
-			@ui.Switch(ui.SwitchProps{Style: ui.RoundedSwitch, Label: "switch", Valid: ui.SwitchInvalid})
-			@ui.Switch(ui.SwitchProps{Style: ui.PillSwitch, Toggled: true, Label: "switch", Valid: ui.SwitchValid})
-			@ui.Select(ui.SelectProps{Disabled: true, Placeholder: "select"})
-			@ui.Input(ui.InputProps{Disabled: true, Placeholder: "text"})
-			@ui.Checkbox(ui.CheckboxProps{Disabled: true})
-			@ui.Radio(ui.RadioProps{Disabled: true})
-			@ui.Textarea(ui.TextareaProps{Disabled: true, Placeholder: "textarea"})
+			@ui.Range(ui.RangeProps{Label: "range"})
+			@ui.Range(ui.RangeProps{Label: "range", Type: ui.DangerRange, Disabled: true})
+			@ui.Range(ui.RangeProps{Label: "range", Type: ui.SuccessRange})
+			@ui.Range(ui.RangeProps{Label: "range", Type: ui.InfoRange, Style: ui.RoundedRange})
+			@ui.Range(ui.RangeProps{Label: "range", Type: ui.WarningRange, Style: ui.PillRange})
 		</body>
 	</html>
 }
