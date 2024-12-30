@@ -1,0 +1,72 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/lib"
+import "strconv"
+
+type SwitchType string
+
+const (
+	PrimarySwitch SwitchType = ""
+	DangerSwitch  SwitchType = "pg-danger-switch"
+	SuccessSwitch SwitchType = "pg-success-switch"
+	InfoSwitch    SwitchType = "pg-info-switch"
+	WarningSwitch SwitchType = "pg-warning-switch"
+)
+
+type SwitchStyle string
+
+const (
+	SquaredSwitch SwitchStyle = ""
+	RoundedSwitch SwitchStyle = "pg-rounded"
+	PillSwitch    SwitchStyle = "pg-pill"
+)
+
+type SwitchStatus int
+
+const (
+	SwitchInvalid SwitchStatus = iota + 1
+	SwitchValid
+)
+
+type SwitchProps struct {
+	Class            string       // Adds optional additional classes to the switch
+	Disabled         bool         // Disables the switch if true
+	ID               string       // A unique ID to add to the switch
+	Label            string       // Adds a label to the switch
+	Name             string       // Adds the switch name
+	Style            SwitchStyle  // Applies optional shape styling to the switch, defaults to square
+	Toggled          bool         // Toggless the switch if true
+	Type             SwitchType   // Changes the switch styling to the given type, defaults to primary colors
+	Value            string       // Sets the switch value
+	Valid            SwitchStatus // Applies validation styling to the switch
+	templ.Attributes              // Adds optional additional attributes to add to the switch
+}
+
+templ Switch(props SwitchProps) {
+	<label>
+		<input
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			type="checkbox"
+			role="switch"
+			class={ "pg",
+					lib.Coalesce(string(props.Style), string(SquaredSwitch)),
+					lib.Coalesce(string(props.Type), string(PrimarySwitch)),
+					props.Class }
+			checked?={ props.Toggled }
+			disabled?={ props.Disabled }
+			if props.Valid > 0 {
+				aria-invalid={ strconv.FormatBool(props.Valid == SwitchInvalid) }
+			}
+			{ props.Attributes... }
+		/>
+		{ props.Label }
+	</label>
+}

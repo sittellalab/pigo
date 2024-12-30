@@ -21,7 +21,13 @@ textarea.pg {
   }
 
   &::placeholder {
+    all: unset;
     color: rgb(var(--pg-muted-text));
+  }
+
+  &[disabled] {
+    filter: grayscale(50%);
+    resize: none;
   }
 
   &:has(+ small:not(:empty)) {

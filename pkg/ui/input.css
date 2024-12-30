@@ -22,7 +22,12 @@ input.pg:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=
   }
 
   &::placeholder {
+    all: unset;
     color: rgb(var(--pg-muted-text));
+  }
+
+  &[disabled] {
+    filter: grayscale(50%);
   }
 
   &::-moz-color-swatch,

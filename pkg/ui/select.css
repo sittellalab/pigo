@@ -7,7 +7,8 @@ select.pg {
   border-radius: var(--pg-border-radius);
   border-style: solid;
   border-width: var(--pg-border-width);
-  color: rgb(var(--pg-main-text));
+  color: rgb(var(--pg-muted-text));
+  cursor: pointer;
   display: block;
   font-family: inherit;
   font-size: var(--pg-font-size);
@@ -27,6 +28,11 @@ select.pg {
     border-color: rgb(var(--pg-primary));
     outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
     outline-offset: calc(-.5 * var(--pg-outline-width));
+  }
+
+  &[disabled] {
+    cursor: initial;
+    filter: grayscale(50%);
   }
 
   &:has(+ small:not(:empty)) {
