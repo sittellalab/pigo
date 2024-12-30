@@ -14,13 +14,10 @@ templ Stage() {
 		<body>
 			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "50px"})
 			<br/>
-			@ui.Checkbox(ui.CheckboxProps{Checked: true, Label: "checkbox"})
-			@ui.Checkbox(ui.CheckboxProps{Label: "checkbox"})
-			@ui.Checkbox(ui.CheckboxProps{Label: "checkbox", Style: ui.RoundedInput, Valid: ui.CheckboxValid})
-			@ui.Checkbox(ui.CheckboxProps{Label: "checkbox", Style: ui.PillInput, Valid: ui.CheckboxInvalid})
-			@ui.Textarea(ui.TextareaProps{})
-			@ui.Select(ui.SelectProps{})
-			@ui.Input(ui.InputProps{})
+			@ui.Radio(ui.RadioProps{Checked: true, Label: "checkbox", Name: "x"})
+			@ui.Radio(ui.RadioProps{Label: "checkbox", Name: "x"})
+			@ui.Radio(ui.RadioProps{Label: "checkbox", Style: ui.RoundedRadio, Valid: ui.RadioValid, Name: "x"})
+			@ui.Radio(ui.RadioProps{Label: "checkbox", Style: ui.SquaredRadio, Valid: ui.RadioInvalid, Name: "x"})
 		</body>
 	</html>
 }

@@ -601,6 +601,7 @@ input[type="checkbox"].pg {
   color: rgb(var(--pg-main-text));
   width: 1.25rem;
   height: 1.25rem;
+  margin: 0;
 }
 
 input[type="checkbox"].pg:checked {
@@ -800,6 +801,57 @@ label.pg-label-responsive input::-ms-input-placeholder {
 
 label.pg-label-responsive input::placeholder {
   opacity: 0;
+}
+
+input[type="radio"].pg {
+  -ms-appearance: none;
+  appearance: none;
+  border-color: rgb(var(--pg-muted-text));
+  border-radius: var(--pg-border-radius);
+  border-style: solid;
+  border-width: var(--pg-border-width);
+  color: rgb(var(--pg-main-text));
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+}
+
+input[type="radio"].pg:checked {
+  background-color: rgb(var(--pg-primary-inverse));
+  border-color: rgb(var(--pg-primary));
+  border-width: calc(5 * var(--pg-border-width));
+}
+
+input[type="radio"].pg[aria-invalid="true"] {
+  border-color: rgb(var(--pg-danger));
+  border-width: calc(2 * var(--pg-border-width));
+}
+
+input[type="radio"].pg[aria-invalid="true"]:checked {
+  background-color: rgb(var(--pg-danger-inverse));
+  border-width: calc(5 * var(--pg-border-width));
+}
+
+input[type="radio"].pg[aria-invalid="false"] {
+  border-color: rgb(var(--pg-success));
+  border-width: calc(2 * var(--pg-border-width));
+}
+
+input[type="radio"].pg[aria-invalid="false"]:checked {
+  background-color: rgb(var(--pg-success-inverse));
+  border-width: calc(5 * var(--pg-border-width));
+}
+
+label:has( > input[type="radio"].pg) {
+  font-family: inherit;
+  line-height: inherit;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  align-items: center;
+  gap: .25rem;
+  margin: .5rem;
+  display: inline-flex;
 }
 
 select.pg {

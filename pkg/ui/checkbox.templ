@@ -3,6 +3,14 @@ package ui
 import "github.com/sittellalab/pigo/pkg/lib"
 import "strconv"
 
+type CheckboxStyle string
+
+const (
+	SquaredCheckbox CheckboxStyle = ""
+	RoundedCheckbox CheckboxStyle = "pg-rounded"
+	PillCheckbox    CheckboxStyle = "pg-pill"
+)
+
 type CheckboxStatus int
 
 const (
@@ -17,7 +25,7 @@ type CheckboxProps struct {
 	ID               string         // A unique ID to add to the checkbox
 	Label            string         // Adds a label to the checkbox
 	Name             string         // Adds the checkbox name
-	Style            InputStyle     // Applies optional shape styling to the checkbox, defaults to square
+	Style            CheckboxStyle  // Applies optional shape styling to the checkbox, defaults to square
 	Value            string         // Sets the checkbox value
 	Valid            CheckboxStatus // Applies validation styling to the checkbox
 	templ.Attributes                // Adds optional additional attributes to add to the checkbox
@@ -41,7 +49,7 @@ templ Checkbox(props CheckboxProps) {
 			if props.Value != "" {
 				value={ props.Value }
 			}
-			class={ "pg", lib.Coalesce(string(props.Style), string(SquaredInput)), props.Class }
+			class={ "pg", lib.Coalesce(string(props.Style), string(SquaredCheckbox)), props.Class }
 			if props.Valid > 0 {
 				aria-invalid={ strconv.FormatBool(props.Valid == CheckboxInvalid) }
 				onclick="this.removeAttribute('aria-invalid');"

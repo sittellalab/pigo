@@ -51,31 +51,19 @@ func Stage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Checkbox(ui.CheckboxProps{Checked: true, Label: "checkbox"}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Radio(ui.RadioProps{Checked: true, Label: "checkbox", Name: "x"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Checkbox(ui.CheckboxProps{Label: "checkbox"}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Radio(ui.RadioProps{Label: "checkbox", Name: "x"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Checkbox(ui.CheckboxProps{Label: "checkbox", Style: ui.RoundedInput, Valid: ui.CheckboxValid}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Radio(ui.RadioProps{Label: "checkbox", Style: ui.RoundedRadio, Valid: ui.RadioValid, Name: "x"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = ui.Checkbox(ui.CheckboxProps{Label: "checkbox", Style: ui.PillInput, Valid: ui.CheckboxInvalid}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Textarea(ui.TextareaProps{}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Select(ui.SelectProps{}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = ui.Input(ui.InputProps{}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = ui.Radio(ui.RadioProps{Label: "checkbox", Style: ui.SquaredRadio, Valid: ui.RadioInvalid, Name: "x"}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

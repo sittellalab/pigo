@@ -3,6 +3,14 @@ package ui
 import "strconv"
 import "github.com/sittellalab/pigo/pkg/lib"
 
+type SelectStyle string
+
+const (
+	SquaredSelect SelectStyle = ""
+	RoundedSelect SelectStyle = "pg-rounded"
+	PillSelect    SelectStyle = "pg-pill"
+)
+
 type SelectStatus int
 
 const (
@@ -21,7 +29,7 @@ type SelectProps struct {
 	Placeholder       string       // Adds placeholder text to text based elements
 	Required          bool         // Ensures the select is required if true
 	Size              int          // Specifies how many items can be visible at once
-	Style             InputStyle   // Applies optional shape styling to the select, defaults to square
+	Style             SelectStyle  // Applies optional shape styling to the select, defaults to square
 	Valid             SelectStatus // Applies validation styling to the select
 	ValidationMessage string       // An optional message to accompany the validation status
 	templ.Attributes               // Adds optional additional attributes to add to the select
@@ -38,7 +46,7 @@ templ Select(props SelectProps) {
 		if props.ID != "" {
 			id={ props.ID }
 		}
-		class={ "pg", string(lib.Coalesce(string(props.Style), string(SquaredInput))), props.Class }
+		class={ "pg", string(lib.Coalesce(string(props.Style), string(SquaredSelect))), props.Class }
 		if props.Name != "" {
 			name={ props.Name }
 		}

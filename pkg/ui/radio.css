@@ -1,4 +1,4 @@
-input[type=checkbox].pg {
+input[type=radio].pg {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -12,19 +12,9 @@ input[type=checkbox].pg {
   width: 1.25rem;
 
   &:checked {
-    background-color: rgb(var(--pg-primary));
-    background-image: var(--pg-icon-checkbox);
-    background-position: center center;
-    background-size: 1rem;
+    background-color: rgb(var(--pg-primary-inverse));
     border-color: rgb(var(--pg-primary));
-  }
-
-  &:indeterminate {
-    background-color: rgb(var(--pg-primary));
-    background-image: var(--pg-icon-minus);
-    background-position: center center;
-    background-size: 1rem;
-    border-color: rgb(var(--pg-primary));
+    border-width: calc(5 * var(--pg-border-width));
   }
 
   &[aria-invalid=true] {
@@ -33,7 +23,8 @@ input[type=checkbox].pg {
   }
 
   &[aria-invalid=true]:checked {
-    background-color: rgb(var(--pg-danger));
+    background-color: rgb(var(--pg-danger-inverse));
+    border-width: calc(5 * var(--pg-border-width));
   }
 
   &[aria-invalid=false] {
@@ -42,11 +33,12 @@ input[type=checkbox].pg {
   }
 
   &[aria-invalid=false]:checked {
-    background-color: rgb(var(--pg-success));
+    background-color: rgb(var(--pg-success-inverse));
+    border-width: calc(5 * var(--pg-border-width));
   }
 }
 
-label:has(> input[type=checkbox].pg) {
+label:has(> input[type=radio].pg) {
   align-items: center;
   display: inline-flex;
   font-family: inherit;

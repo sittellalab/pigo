@@ -1,0 +1,64 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/lib"
+import "strconv"
+
+type RadioStyle string
+
+const (
+	SquaredRadio RadioStyle = "pg-squared"
+	RoundedRadio RadioStyle = "pg-rounded"
+	PillRadio    RadioStyle = "pg-pill"
+)
+
+type RadioStatus int
+
+const (
+	RadioInvalid RadioStatus = iota + 1
+	RadioValid
+)
+
+type RadioProps struct {
+	Checked          bool        // Checks the radio if true
+	Class            string      // Adds optional additional classes to the radio
+	Disabled         bool        // Disables the radio if true
+	ID               string      // A unique ID to add to the radio
+	Label            string      // Adds a label to the radio
+	Name             string      // Adds the radio name
+	Style            RadioStyle  // Applies optional shape styling to the radio, defaults to pill
+	Value            string      // Sets the radio value
+	Valid            RadioStatus // Applies validation styling to the radio
+	templ.Attributes             // Adds optional additional attributes to add to the radio
+}
+
+// Radio will render a radio input.
+//
+// Note: When the Valid field is used, some JavaScript is executed when the user interacts with the radio element.
+// This JavaScript removes the applied validation styling.
+// The Radio component itself does not require JavaScript.
+// If a user has JavaScript disabled, the interactivity in the styling of the Radio will fail gracefully.
+templ Radio(props RadioProps) {
+	<label>
+		<input
+			if props.ID != "" {
+				id={ props.ID }
+			}
+			if props.Name != "" {
+				name={ props.Name }
+			}
+			if props.Value != "" {
+				value={ props.Value }
+			}
+			class={ "pg", lib.IIF(props.Style == "", string(PillRadio), string(props.Style)), props.Class }
+			if props.Valid > 0 {
+				aria-invalid={ strconv.FormatBool(props.Valid == RadioInvalid) }
+				onclick="this.removeAttribute('aria-invalid');"
+			}
+			type="radio"
+			checked?={ props.Checked }
+			disabled?={ props.Disabled }
+			{ props.Attributes... }
+		/>
+		{ props.Label }
+	</label>
+}

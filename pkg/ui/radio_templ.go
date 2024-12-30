@@ -11,41 +11,41 @@ import templruntime "github.com/a-h/templ/runtime"
 import "github.com/sittellalab/pigo/pkg/lib"
 import "strconv"
 
-type CheckboxStyle string
+type RadioStyle string
 
 const (
-	SquaredCheckbox CheckboxStyle = ""
-	RoundedCheckbox CheckboxStyle = "pg-rounded"
-	PillCheckbox    CheckboxStyle = "pg-pill"
+	SquaredRadio RadioStyle = "pg-squared"
+	RoundedRadio RadioStyle = "pg-rounded"
+	PillRadio    RadioStyle = "pg-pill"
 )
 
-type CheckboxStatus int
+type RadioStatus int
 
 const (
-	CheckboxInvalid CheckboxStatus = iota + 1
-	CheckboxValid
+	RadioInvalid RadioStatus = iota + 1
+	RadioValid
 )
 
-type CheckboxProps struct {
-	Checked          bool           // Checks the checkbox if true
-	Class            string         // Adds optional additional classes to the checkbox
-	Disabled         bool           // Disables the checkbox if true
-	ID               string         // A unique ID to add to the checkbox
-	Label            string         // Adds a label to the checkbox
-	Name             string         // Adds the checkbox name
-	Style            CheckboxStyle  // Applies optional shape styling to the checkbox, defaults to square
-	Value            string         // Sets the checkbox value
-	Valid            CheckboxStatus // Applies validation styling to the checkbox
-	templ.Attributes                // Adds optional additional attributes to add to the checkbox
+type RadioProps struct {
+	Checked          bool        // Checks the radio if true
+	Class            string      // Adds optional additional classes to the radio
+	Disabled         bool        // Disables the radio if true
+	ID               string      // A unique ID to add to the radio
+	Label            string      // Adds a label to the radio
+	Name             string      // Adds the radio name
+	Style            RadioStyle  // Applies optional shape styling to the radio, defaults to pill
+	Value            string      // Sets the radio value
+	Valid            RadioStatus // Applies validation styling to the radio
+	templ.Attributes             // Adds optional additional attributes to add to the radio
 }
 
-// Checkbox will render a checkbox input.
+// Radio will render a radio input.
 //
-// Note: When the Valid field is used, some JavaScript is executed when the user interacts with the checkbox element.
+// Note: When the Valid field is used, some JavaScript is executed when the user interacts with the radio element.
 // This JavaScript removes the applied validation styling.
-// The Checkbox component itself does not require JavaScript.
-// If a user has JavaScript disabled, the interactivity in the styling of the Checkbox will fail gracefully.
-func Checkbox(props CheckboxProps) templ.Component {
+// The Radio component itself does not require JavaScript.
+// If a user has JavaScript disabled, the interactivity in the styling of the Radio will fail gracefully.
+func Radio(props RadioProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -70,7 +70,7 @@ func Checkbox(props CheckboxProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var2 = []any{"pg", lib.Coalesce(string(props.Style), string(SquaredCheckbox)), props.Class}
+		var templ_7745c5c3_Var2 = []any{"pg", lib.IIF(props.Style == "", string(PillRadio), string(props.Style)), props.Class}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -87,7 +87,7 @@ func Checkbox(props CheckboxProps) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/checkbox.templ`, Line: 44, Col: 17}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/radio.templ`, Line: 44, Col: 17}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -106,7 +106,7 @@ func Checkbox(props CheckboxProps) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(props.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/checkbox.templ`, Line: 47, Col: 21}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/radio.templ`, Line: 47, Col: 21}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -125,7 +125,7 @@ func Checkbox(props CheckboxProps) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(props.Value)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/checkbox.templ`, Line: 50, Col: 23}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/radio.templ`, Line: 50, Col: 23}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -143,7 +143,7 @@ func Checkbox(props CheckboxProps) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var2).String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/checkbox.templ`, Line: 1, Col: 0}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/radio.templ`, Line: 1, Col: 0}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -159,9 +159,9 @@ func Checkbox(props CheckboxProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatBool(props.Valid == CheckboxInvalid))
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatBool(props.Valid == RadioInvalid))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/checkbox.templ`, Line: 54, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/radio.templ`, Line: 54, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -172,7 +172,7 @@ func Checkbox(props CheckboxProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" type=\"checkbox\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" type=\"radio\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -199,7 +199,7 @@ func Checkbox(props CheckboxProps) templ.Component {
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(props.Label)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/checkbox.templ`, Line: 62, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/ui/radio.templ`, Line: 62, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
