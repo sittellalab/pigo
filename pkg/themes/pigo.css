@@ -592,29 +592,25 @@ input[type="reset"].pg-warning:not(.pg-outline):hover {
   background-color: rgb(var(--pg-outline-bg) / .1) !important;
 }
 
-details.pg {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-}
-
 details.pg:has( + details.pg) {
   border-bottom: var(--pg-border-width) solid rgb(var(--pg-muted-text));
 }
 
 details.pg::details-content {
   height: 0;
-  transition: block-size var(--pg-transition), margin-top var(--pg-transition), content-visibility var(--pg-transition);
+  transition: block-size var(--pg-transition), content-visibility var(--pg-transition);
   transition-behavior: allow-discrete;
   overflow: hidden;
 }
 
 details.pg[open]::details-content {
   height: auto;
-  margin-top: .5rem;
 }
 
 details.pg > summary {
   cursor: pointer;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
   list-style-type: none;
   position: relative;
 }
@@ -659,6 +655,11 @@ details.pg > summary[role="button"]:not(.pg-outline):before {
 
 details.pg[open] > summary:before {
   transform: rotate(0);
+}
+
+details.pg > summary + div {
+  margin-bottom: .5rem;
+  overflow: hidden;
 }
 
 @media only screen and (prefers-color-scheme: dark) {

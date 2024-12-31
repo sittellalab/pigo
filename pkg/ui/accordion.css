@@ -1,6 +1,4 @@
 details.pg {
-  padding-block: 0.5rem;
-
   &:has(+ details.pg) {
     border-bottom: var(--pg-border-width) solid rgb(var(--pg-muted-text));
   }
@@ -10,19 +8,18 @@ details.pg {
     overflow: hidden;
     transition:
       block-size var(--pg-transition),
-      margin-top var(--pg-transition),
       content-visibility var(--pg-transition);
     transition-behavior: allow-discrete;
   }
 
   &[open]::details-content {
     block-size: auto;
-    margin-top: 0.5rem;
   }
 
   & > summary {
     cursor: pointer;
     list-style-type: none;
+    margin-block: 0.5rem;
     position: relative;
   }
 
@@ -63,6 +60,11 @@ details.pg {
 
   &[open] > summary::before {
     transform: rotate(0);
+  }
+
+  & > summary + div {
+    margin-bottom: 0.5rem;
+    overflow: hidden;
   }
 }
 
