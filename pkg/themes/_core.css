@@ -182,6 +182,7 @@
 }
 
 :root {
+  interpolate-size: allow-keywords;
   background-color: rgb(var(--pg-main-bg));
   color: rgb(var(--pg-main-text));
   font-size: var(--pg-font-size);
@@ -260,8 +261,9 @@ a.pg-warning {
 }
 
 button,
-input:is([type=button], [type=reset], [type=submit]),
-a[role=button] {
+a[role=button],
+summary[role=button],
+input:is([type=button], [type=reset], [type=submit]) {
   border-radius: var(--pg-border-radius);
   border-style: solid;
   border-width: var(--pg-border-width);
@@ -284,9 +286,10 @@ a[role=button] {
 }
 
 button,
-input:is([type=button], [type=submit]),
-input[type=reset].bg-primary,
-a[role=button] {
+a[role=button],
+summary[role=button],
+input[type=reset].pg-primary,
+input:is([type=button], [type=submit]) {
   --pg-outline-bg: var(--pg-primary);
   --pg-outline-text: var(--pg-primary-text);
   background-color: rgb(var(--pg-primary));
@@ -300,8 +303,9 @@ a[role=button] {
 }
 
 button.pg-secondary,
-input:is([type=button], [type=submit], [type=reset]).pg-secondary,
-a[role=button].pg-secondary {
+a[role=button].pg-secondary,
+summary[role=button].pg-secondary,
+input:is([type=button], [type=submit], [type=reset]).pg-secondary {
   --pg-outline-bg: var(--pg-secondary);
   --pg-outline-text: var(--pg-secondary-text);
   background-color: rgb(var(--pg-secondary));
@@ -315,9 +319,10 @@ a[role=button].pg-secondary {
 }
 
 button.pg-contrast,
+a[role=button].pg-contrast,
+summary[role=button].pg-contrast,
 input:is([type=button], [type=submit], [type=reset]).pg-contrast,
-input[type=reset].bg-contrast,
-a[role=button].pg-contrast {
+input[type=reset].pg-contrast {
   --pg-outline-bg: var(--pg-contrast);
   --pg-outline-text: var(--pg-contrast-text);
   background-color: rgb(var(--pg-contrast));
@@ -331,9 +336,10 @@ a[role=button].pg-contrast {
 }
 
 button.pg-danger,
+a[role=button].pg-danger,
+summary[role=button].pg-danger,
 input:is([type=button], [type=submit], [type=reset]).pg-danger,
-input[type=reset].bg-danger,
-a[role=button].pg-danger {
+input[type=reset].pg-danger {
   --pg-outline-bg: var(--pg-danger);
   --pg-outline-text: var(--pg-danger-text);
   background-color: rgb(var(--pg-danger));
@@ -347,9 +353,10 @@ a[role=button].pg-danger {
 }
 
 button.pg-success,
+a[role=button].pg-success,
+summary[role=button].pg-success,
 input:is([type=button], [type=submit], [type=reset]).pg-success,
-input[type=reset].bg-success,
-a[role=button].pg-success {
+input[type=reset].pg-success {
   --pg-outline-bg: var(--pg-success);
   --pg-outline-text: var(--pg-success-text);
   background-color: rgb(var(--pg-success));
@@ -363,9 +370,10 @@ a[role=button].pg-success {
 }
 
 button.pg-info,
+a[role=button].pg-info,
+summary[role=button].pg-info,
 input:is([type=button], [type=submit], [type=reset]).pg-info,
-input[type=reset].bg-info,
-a[role=button].pg-info {
+input[type=reset].pg-info {
   --pg-outline-bg: var(--pg-info);
   --pg-outline-text: var(--pg-info-text);
   background-color: rgb(var(--pg-info));
@@ -379,9 +387,10 @@ a[role=button].pg-info {
 }
 
 button.pg-warning,
+a[role=button].pg-warning,
+summary[role=button].pg-warning,
 input:is([type=button], [type=submit], [type=reset]).pg-warning,
-input[type=reset].bg-warning,
-a[role=button].pg-warning {
+input[type=reset].pg-warning {
   --pg-outline-bg: var(--pg-warning);
   --pg-outline-text: var(--pg-warning-text);
   background-color: rgb(var(--pg-warning));

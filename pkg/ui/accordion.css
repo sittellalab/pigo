@@ -1,0 +1,77 @@
+details.pg {
+  padding-block: 0.5rem;
+
+  &:has(+ details.pg) {
+    border-bottom: var(--pg-border-width) solid rgb(var(--pg-muted-text));
+  }
+
+  &::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size var(--pg-transition),
+      margin-top var(--pg-transition),
+      content-visibility var(--pg-transition);
+    transition-behavior: allow-discrete;
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+    margin-top: 0.5rem;
+  }
+
+  & > summary {
+    cursor: pointer;
+    list-style-type: none;
+    position: relative;
+  }
+
+  & > summary:not([role=button]):hover {
+    filter: brightness(150%);
+  }
+
+  & > summary[role=button] {
+    text-align: left;
+  }
+
+  & summary::marker,
+  & summary::-webkit-details-marker {
+    display: none;
+  }
+
+  & summary::-moz-list-bullet {
+    list-style-type: none;
+  }
+
+  & > summary::before {
+    aspect-ratio: 1/1;
+    background-image: var(--pg-icon-chevron);
+    background-position: center center;
+    background-size: 1rem auto;
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(-90deg);
+    transition: transform var(--pg-transition);
+  }
+
+  & > summary[role=button]:not(.pg-outline)::before {
+    filter: brightness(0) invert(1);
+  }
+
+  &[open] > summary::before {
+    transform: rotate(0);
+  }
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) details.pg > summary[role=button]:is(.pg-contrast, pg-warning):not(.pg-outline)::before {
+    filter: brightness(0);
+  }
+}
+
+[data-theme=dark] details.pg > summary[role=button]:is(.pg-contrast, .pg-warning):not(.pg-outline)::before {
+  filter: brightness(0);
+}

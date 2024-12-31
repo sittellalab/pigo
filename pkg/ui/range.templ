@@ -35,6 +35,7 @@ type RangeProps struct {
 	templ.Attributes            // Adds optional additional attributes to add to the range
 }
 
+// Range will render a range input.
 templ Range(props RangeProps) {
 	<label>
 		{ props.Label }

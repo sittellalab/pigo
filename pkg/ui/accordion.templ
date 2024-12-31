@@ -1,0 +1,39 @@
+package ui
+
+type AccordionProps struct {
+	Button           bool   // Styles the accordion as a button
+	Class            string // Adds optional additional classes to the accordion
+	ID               string // A unique ID to add to the accordion
+	Name             string // Adds a name to the accordion
+	Open             bool   // Defaults the accordion to be open if true
+	Summary          string // The main clickable text of the accordion
+	SummaryClass     string // Adds optional additionall classes to the accordion
+	templ.Attributes        // Adds optional additional attributes to add to the accordion
+}
+
+// Accordion renders an accordion component composed of a <details> containing a <summary> and other child content.
+templ Accordion(props AccordionProps) {
+	<details
+		if props.ID != "" {
+			id={ props.ID }
+		}
+		if props.Name != "" {
+			name={ props.Name }
+		}
+		class={ "pg", props.Class }
+		open?={ props.Open }
+		{ props.Attributes... }
+	>
+		<summary
+			if props.Button {
+				role="button"
+			}
+			if props.SummaryClass != "" {
+				class={ props.SummaryClass }
+			}
+		>{ props.Summary }</summary>
+		<div>
+			{ children... }
+		</div>
+	</details>
+}

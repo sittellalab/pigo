@@ -14,11 +14,21 @@ templ Stage() {
 		<body>
 			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "50px"})
 			<br/>
-			@ui.Range(ui.RangeProps{Label: "range"})
-			@ui.Range(ui.RangeProps{Label: "range", Type: ui.DangerRange, Disabled: true})
-			@ui.Range(ui.RangeProps{Label: "range", Type: ui.SuccessRange})
-			@ui.Range(ui.RangeProps{Label: "range", Type: ui.InfoRange, Style: ui.RoundedRange})
-			@ui.Range(ui.RangeProps{Label: "range", Type: ui.WarningRange, Style: ui.PillRange})
+			@ui.Accordion(ui.AccordionProps{Summary: "summary", Button: true, SummaryClass: "pg-contrast", Name: "x"}) {
+				<p>content</p>
+			}
+			@ui.Accordion(ui.AccordionProps{Summary: "summary", Button: true, SummaryClass: "pg-pill pg-danger", Name: "x"}) {
+				<p>content</p>
+			}
+			@ui.Accordion(ui.AccordionProps{Summary: "summary", Button: true, SummaryClass: "pg-warning", Name: "x"}) {
+				<p>content</p>
+			}
+			@ui.Accordion(ui.AccordionProps{Summary: "summary"}) {
+				<p>content</p>
+			}
+			@ui.Accordion(ui.AccordionProps{Summary: "summary"}) {
+				<p>content</p>
+			}
 		</body>
 	</html>
 }
