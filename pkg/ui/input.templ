@@ -111,17 +111,17 @@ templ input(props InputProps) {
 	<small>{ props.HelperText }</small>
 }
 
-script inputValidator(thiss, callback templ.JSExpression, initial, error, success string) {
+script inputValidator(context, callback templ.JSExpression, initial, error, success string) {
 	if (typeof callback !== "function") return console.error("The validation callback is not a function\nTriggered by:", t);
 
-	if (!thiss.value) {
-		thiss.nextElementSibling.textContent = initial;
-		thiss.removeAttribute("aria-invalid");
-	} else if (callback(thiss.value)) {
-		thiss.nextElementSibling.textContent = success;
-		thiss.setAttribute("aria-invalid", "false");
+	if (!context.value) {
+		context.nextElementSibling.textContent = initial;
+		context.removeAttribute("aria-invalid");
+	} else if (callback(context.value)) {
+		context.nextElementSibling.textContent = success;
+		context.setAttribute("aria-invalid", "false");
 	} else {
-		thiss.nextElementSibling.textContent = error;
-		thiss.setAttribute("aria-invalid", "true");
+		context.nextElementSibling.textContent = error;
+		context.setAttribute("aria-invalid", "true");
 	}
 }

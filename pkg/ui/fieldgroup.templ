@@ -1,0 +1,17 @@
+package ui
+
+import "github.com/sittellalab/pigo/pkg/lib"
+
+type FieldGroupOrientation bool
+
+const (
+	FieldGroupVertical   FieldGroupOrientation = true
+	FieldGroupHorizontal FieldGroupOrientation = false
+)
+
+// FieldGroup renders a fieldset containing all children arranged in the given orientation
+templ FieldGroup(orientation FieldGroupOrientation) {
+	<fieldset class={ "pg", lib.IIF(bool(orientation), "pg-vgroup", "pg-hgroup") }>
+		{ children... }
+	</fieldset>
+}

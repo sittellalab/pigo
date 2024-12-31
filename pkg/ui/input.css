@@ -19,6 +19,7 @@ input.pg:not([type=button], [type=checkbox], [type=hidden], [type=image], [type=
     border-color: rgb(var(--pg-primary));
     outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
     outline-offset: calc(-.5 * var(--pg-outline-width));
+    z-index: 1;
   }
 
   &::placeholder {

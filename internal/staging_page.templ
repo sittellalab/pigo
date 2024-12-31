@@ -14,21 +14,41 @@ templ Stage() {
 		<body>
 			@ui.ThemeToggle(ui.ThemeToggleProps{Size: "50px"})
 			<br/>
-			@ui.Accordion(ui.AccordionProps{Summary: "summary", Button: true, SummaryClass: "pg-contrast", Name: "x"}) {
-				<p>content</p>
-			}
-			@ui.Accordion(ui.AccordionProps{Summary: "summary", Button: true, SummaryClass: "pg-pill pg-danger", Name: "x"}) {
-				<p>content</p>
-			}
-			@ui.Accordion(ui.AccordionProps{Summary: "summary", Button: true, SummaryClass: "pg-warning", Name: "x"}) {
-				<p>content</p>
-			}
-			@ui.Accordion(ui.AccordionProps{Summary: "summary"}) {
-				<p>content</p>
-			}
-			@ui.Accordion(ui.AccordionProps{Summary: "summary"}) {
-				<p>content</p>
-			}
+			<form style="width:50%">
+				@ui.FieldGroup(ui.FieldGroupVertical) {
+					@ui.Input(ui.InputProps{Style: ui.PillInput})
+					@ui.Input(ui.InputProps{Style: ui.PillInput})
+					<button class="pg-pill">button</button>
+				}
+				<br/>
+				@ui.FieldGroup(ui.FieldGroupVertical) {
+					@ui.Input(ui.InputProps{Style: ui.RoundedInput})
+					@ui.Input(ui.InputProps{Style: ui.RoundedInput})
+					<button class="pg-rounded">button</button>
+				}
+				<br/>
+				@ui.FieldGroup(ui.FieldGroupVertical) {
+					@ui.Input(ui.InputProps{})
+					<button>button</button>
+				}
+				<br/>
+				@ui.FieldGroup(ui.FieldGroupHorizontal) {
+					@ui.Input(ui.InputProps{Style: ui.RoundedInput})
+					@ui.Input(ui.InputProps{Style: ui.RoundedInput})
+					<button class="pg-rounded">button</button>
+				}
+				<br/>
+				@ui.FieldGroup(ui.FieldGroupHorizontal) {
+					@ui.Input(ui.InputProps{Style: ui.PillInput})
+					@ui.Input(ui.InputProps{Style: ui.PillInput})
+					<button class="pg-pill">button</button>
+				}
+				<br/>
+				@ui.FieldGroup(ui.FieldGroupHorizontal) {
+					@ui.Input(ui.InputProps{})
+					<button>button</button>
+				}
+			</form>
 		</body>
 	</html>
 }

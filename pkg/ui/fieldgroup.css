@@ -1,0 +1,55 @@
+fieldset.pg {
+  border: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  &.pg-hgroup {
+    align-items: center;
+  }
+
+  &.pg-vgroup {
+    flex-direction: column;
+  }
+
+  &.pg-hgroup :not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right-width: calc(0.5 * var(--pg-border-width));
+    margin-right: 0;
+  }
+
+  &.pg-hgroup :not(:first-of-type:not(:last-child)) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left-width: calc(0.5 * var(--pg-border-width));
+    margin-left: 0;
+  }
+
+  &.pg-vgroup :not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-width: calc(0.5 * var(--pg-border-width));
+    margin-bottom: 0;
+  }
+
+  &.pg-vgroup :not(:first-of-type:not(:last-child)) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-width: calc(0.5 * var(--pg-border-width));
+    margin-top: 0;
+  }
+
+  &.pg-hgroup :is(button, [role=button]) {
+    padding-inline: 2rem;
+    width: fit-content;
+  }
+
+  & input.pg {
+    margin: 0;
+  }
+
+  & input.pg + small {
+    display: none;
+  }
+}

@@ -270,15 +270,15 @@ button, a[role="button"], summary[role="button"] {
   cursor: pointer;
   font-family: inherit;
   font-size: var(--pg-font-size);
-  height: calc(2 * .375rem + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
+  height: calc(2 * .325rem + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
   line-height: var(--pg-line-height);
   text-align: center;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
   width: 100%;
-  padding-top: .375rem;
-  padding-bottom: .375rem;
+  padding-top: .325rem;
+  padding-bottom: .325rem;
   padding-left: .75rem;
   padding-right: .75rem;
   text-decoration: none;
@@ -292,15 +292,15 @@ input:is([type="button"], [type="reset"], [type="submit"]) {
   cursor: pointer;
   font-family: inherit;
   font-size: var(--pg-font-size);
-  height: calc(2 * .375rem + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
+  height: calc(2 * .325rem + var(--pg-font-size) * var(--pg-line-height)  + var(--pg-border-width));
   line-height: var(--pg-line-height);
   text-align: center;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
   width: 100%;
-  padding-top: .375rem;
-  padding-bottom: .375rem;
+  padding-top: .325rem;
+  padding-bottom: .325rem;
   padding-left: .75rem;
   padding-right: .75rem;
   text-decoration: none;
@@ -737,6 +737,63 @@ label:has( > input[type="checkbox"].pg:not([role="switch"])) {
   display: inline-flex;
 }
 
+fieldset.pg {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+fieldset.pg.pg-hgroup {
+  align-items: center;
+}
+
+fieldset.pg.pg-vgroup {
+  flex-direction: column;
+}
+
+fieldset.pg.pg-hgroup :not(:last-child) {
+  border-right-width: calc(.5 * var(--pg-border-width));
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: 0;
+}
+
+fieldset.pg.pg-hgroup :not(:first-of-type:not(:last-child)) {
+  border-left-width: calc(.5 * var(--pg-border-width));
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 0;
+}
+
+fieldset.pg.pg-vgroup :not(:last-child) {
+  border-bottom-width: calc(.5 * var(--pg-border-width));
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-bottom: 0;
+}
+
+fieldset.pg.pg-vgroup :not(:first-of-type:not(:last-child)) {
+  border-top-width: calc(.5 * var(--pg-border-width));
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0;
+}
+
+fieldset.pg.pg-hgroup :is(button, [role="button"]) {
+  width: fit-content;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+fieldset.pg input.pg {
+  margin: 0;
+}
+
+fieldset.pg input.pg + small {
+  display: none;
+}
+
 input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"])) {
   background-color: rgb(var(--pg-muted));
   border-color: rgb(var(--pg-muted-text));
@@ -760,6 +817,7 @@ input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="ima
   border-color: rgb(var(--pg-primary));
   outline: var(--pg-outline-width) solid rgb(var(--pg-primary));
   outline-offset: calc(-.5 * var(--pg-outline-width));
+  z-index: 1;
 }
 
 input.pg:not(:is([type="button"], [type="checkbox"], [type="hidden"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]))::-ms-input-placeholder {

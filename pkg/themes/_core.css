@@ -271,9 +271,9 @@ input:is([type=button], [type=reset], [type=submit]) {
   display: inline-block;
   font-family: inherit;
   font-size: var(--pg-font-size);
-  height: calc(2 * 0.375rem + var(--pg-font-size) * var(--pg-line-height) + var(--pg-border-width));
+  height: calc(2 * 0.325rem + var(--pg-font-size) * var(--pg-line-height) + var(--pg-border-width));
   line-height: var(--pg-line-height);
-  padding-block: 0.375rem;
+  padding-block: 0.325rem;
   padding-inline: 0.75rem;
   text-align: center;
   text-decoration: none;

@@ -371,24 +371,24 @@ func input(props InputProps) templ.Component {
 	})
 }
 
-func inputValidator(thiss, callback templ.JSExpression, initial, error, success string) templ.ComponentScript {
+func inputValidator(context, callback templ.JSExpression, initial, error, success string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_inputValidator_3f56`,
-		Function: `function __templ_inputValidator_3f56(thiss, callback, initial, error, success){if (typeof callback !== "function") return console.error("The validation callback is not a function\nTriggered by:", t);
+		Name: `__templ_inputValidator_33cb`,
+		Function: `function __templ_inputValidator_33cb(context, callback, initial, error, success){if (typeof callback !== "function") return console.error("The validation callback is not a function\nTriggered by:", t);
 
-	if (!thiss.value) {
-		thiss.nextElementSibling.textContent = initial;
-		thiss.removeAttribute("aria-invalid");
-	} else if (callback(thiss.value)) {
-		thiss.nextElementSibling.textContent = success;
-		thiss.setAttribute("aria-invalid", "false");
+	if (!context.value) {
+		context.nextElementSibling.textContent = initial;
+		context.removeAttribute("aria-invalid");
+	} else if (callback(context.value)) {
+		context.nextElementSibling.textContent = success;
+		context.setAttribute("aria-invalid", "false");
 	} else {
-		thiss.nextElementSibling.textContent = error;
-		thiss.setAttribute("aria-invalid", "true");
+		context.nextElementSibling.textContent = error;
+		context.setAttribute("aria-invalid", "true");
 	}
 }`,
-		Call:       templ.SafeScript(`__templ_inputValidator_3f56`, thiss, callback, initial, error, success),
-		CallInline: templ.SafeScriptInline(`__templ_inputValidator_3f56`, thiss, callback, initial, error, success),
+		Call:       templ.SafeScript(`__templ_inputValidator_33cb`, context, callback, initial, error, success),
+		CallInline: templ.SafeScriptInline(`__templ_inputValidator_33cb`, context, callback, initial, error, success),
 	}
 }
 
